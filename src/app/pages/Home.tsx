@@ -5,7 +5,7 @@ import { Header } from '../../components/Header';
 import Button from '../../components/Button';
 import LastestNews from '../../components/LastestNews';
 import UpcomingEvents from '../../components/UpcomingEvents';
-import EcowildCount from '../../components/EcowildCount';
+import EcowildCount from '../../components/CountUp';
 import LatestBlogs from '../../components/LatestBlogs';
 import Footer from '../../components/Footer';
 
