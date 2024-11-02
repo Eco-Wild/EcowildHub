@@ -15,7 +15,7 @@ export const Button = ({ children, type, className, bg, onClick }: Props) => {
     <button
       type={type}
       className={clsx(
-        'h-[54px] font-semibold text-sm px-12 rounded-md',
+        'h-[54px] font-semibold text-sm px-11 rounded-md',
         bg === 'white'
           ? 'bg-white border-2 border-primary-400 text-primary-400'
           : 'bg-primary-400 text-white',

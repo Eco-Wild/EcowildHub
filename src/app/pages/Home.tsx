@@ -8,6 +8,8 @@ import UpcomingEvents from '../../components/UpcomingEvents';
 import EcowildCount from '../../components/CountUp';
 import LatestBlogs from '../../components/LatestBlogs';
 import Footer from '../../components/Footer';
+import useScrollToTop from '../../hooks/useScrollToTop';
+import ScrollToTopButton from '../../components/ScrollToTopButton';
 
 const offers = [
   {
@@ -55,21 +57,22 @@ const destinations = [
 
 const Home = () => {
   const navigate = useNavigate();
+  const showScrollButton = useScrollToTop();
+
   return (
     <div>
       <Header />
       <main>
         <Carousel />
-
         <section className='bg-tertiary-600'>
-          <div className='container mx-auto max-w-[1728px] lg:flex lg:space-x-12'>
+          <div className='container mx-auto max-w-[1728px] md:flex justify-between gap-6 md:py-0 py-10 '>
             {offers.map((offer, index) => (
               <div
                 key={index}
                 className={clsx(
-                  'flex-1 flex justify-center space-x-5 lg:pr-12 py-12 lg:my-4',
+                  'flex-1 flex justify-center space-x-5 md:py-12 my-6 pr-2',
                   index !== offers.length - 1
-                    ? 'lg:border-r border-[#5a5f71]'
+                    ? 'md:border-r border-[#5a5f71]'
                     : ''
                 )}
               >
@@ -90,7 +93,7 @@ const Home = () => {
             ))}
           </div>
         </section>
-        <section className='container mx-auto max-w-[1728px] lg:pt-44 lg:pb-40 py-32'>
+        <section className='container mx-auto max-w-[1728px] lg:pt-44 lg:pb-36 pt-32 pb-28'>
           <div className='md:flex lg:space-x-52 md:space-x-16'>
             <div className='flex-1 relative'>
               <img
@@ -137,7 +140,7 @@ const Home = () => {
             </Button>
           </div>
         </section>
-        <section className=''>
+        <section>
           <div className='container mx-auto max-w-6xl flex flex-col items-center text-center  text-tertiary-600'>
             <span className='block w-20 h-[3px] bg-secondary-100 mb-3'></span>
             <h3 className='font-bold text-[32px] md:w-3/6'>
@@ -242,6 +245,7 @@ const Home = () => {
         <UpcomingEvents />
         <EcowildCount />
         <LatestBlogs />
+        {showScrollButton && <ScrollToTopButton />}
       </main>
       <Footer />
     </div>

@@ -92,27 +92,27 @@ const Footer = () => {
         <div className='flex flex-wrap justify-center gap-6 text-white mt-9 opacity-90 lg:w-7/12'>
           <Link
             to=''
-            className='flex justify-center items-center w-16 h-16 rounded-full bg-white bg-opacity-15'
+            className='flex justify-center items-center w-[60px] h-[60px] rounded-full bg-white bg-opacity-15'
           >
             <Icon icon='iconoir:instagram' className='w-[30px] h-[30px]' />
           </Link>
           <Link
             to=''
-            className='flex justify-center items-center w-16 h-16 rounded-full bg-white bg-opacity-15'
+            className='flex justify-center items-center w-[60px] h-[60px] rounded-full bg-white bg-opacity-15'
           >
-            <Icon icon='basil:facebook-outline' className='w-[30px] h-[30px]' />
+            <Icon icon='hugeicons:facebook-02' className='w-[30px] h-[30px]' />
           </Link>
           <Link
             to=''
-            className='flex justify-center items-center w-16 h-16 rounded-full bg-white bg-opacity-15'
+            className='flex justify-center items-center w-[60px] h-[60px] rounded-full bg-white bg-opacity-15'
           >
             <Icon icon='basil:linkedin-outline' className='w-[30px] h-[30px]' />
           </Link>
           <Link
             to=''
-            className='flex justify-center items-center w-16 h-16 rounded-full bg-white bg-opacity-15'
+            className='flex justify-center items-center w-[60px] h-[60px] rounded-full bg-white bg-opacity-15'
           >
-            <Icon icon='pajamas:twitter' className='w-[30px] h-[30px]' />
+            <Icon icon='proicons:x-twitter' className='w-[30px] h-[30px]' />
           </Link>
         </div>
       </div>

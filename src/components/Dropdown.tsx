@@ -13,7 +13,7 @@ interface Props {
   };
 
   isActive: boolean;
-  className?: string;
+  className: string;
 }
 
 const Dropdown = ({ item, isActive, className }: Props) => {

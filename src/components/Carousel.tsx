@@ -43,23 +43,25 @@ const Carousel = () => {
                 <p className='text-secondary-100 text-lg font-bold'>
                   Explore Our Destinations
                 </p>
-                <h1 className='text-white md:text-[50px] text-[32px] mt-4 mb-6 lg:w-[757px] font-extrabold leading-tight'>
+                <h1 className='text-white md:text-[50px] text-[32px] mt-4 mb-6 md:w-[757px] font-extrabold font-REM leading-tight break-words'>
                   {data.text}
                 </h1>
-                <div className='sm:flex'>
+                <div className='xs:flex gap-6'>
                   <Button
                     type='button'
                     bg='green'
-                    className='mb-3 sm:mb-0 sm:mr-6 mr-0 block'
+                    className='mb-3 xs:mb-0 block'
                   >
                     <Link to='/destinations'>Explore More</Link>
                   </Button>
                   <Button
                     type='button'
                     bg='white'
-                    className='border-none text-black block'
+                    className='border-none block'
                   >
-                    <Link to='/donate'>Donate Now!</Link>
+                    <Link to='/donate' className='text-black '>
+                      Donate Now!
+                    </Link>
                   </Button>
                 </div>
               </div>

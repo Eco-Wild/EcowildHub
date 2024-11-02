@@ -29,7 +29,6 @@ const navItems = [
     ],
     id: crypto.randomUUID(),
   },
-  // { name: 'Contact Us', href: '/contact' },
 ];
 
 export const Header = () => {
@@ -92,7 +91,7 @@ export const Header = () => {
                   <Link
                     className={clsx(
                       '',
-                      isActive && 'border-b-2 border-primary-400 p-2'
+                      isActive && 'border-b-2 border-primary-400 p-2 pt-0'
                     )}
                     to={item.href}
                   >
@@ -153,7 +152,7 @@ export const Header = () => {
                     <button type='button'>
                       <Icon
                         icon='material-symbols-light:keyboard-arrow-down-rounded'
-                        className='inline-block ml-1 w-6 h-6'
+                        className='w-6 h-6'
                       />
                     </button>
                   )}
