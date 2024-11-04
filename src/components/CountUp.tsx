@@ -9,7 +9,7 @@ const stats = [
 
 const Countup = () => {
   return (
-    <section className='container mx-auto max-w-[1728px] relative z-10 flex flex-wrap xxs:justify-between justify-center py-14 text-white'>
+    <section className='container mx-auto max-w-[1728px] relative z-10 flex flex-wrap xxs:justify-between justify-center gap-3 py-14 text-white'>
       {stats.map((stat, index) => (
         <div key={index} className='flex flex-col items-center'>
           <img
