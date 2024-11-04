@@ -1,3 +1,4 @@
+import Button from '../../components/Button';
 import OurStory from '../../components/OurStory';
 import CustomerReviews from '../../components/CustomerReviews';
 import Reachout from '../../components/Reachout';
