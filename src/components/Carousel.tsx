@@ -6,17 +6,17 @@ import Button from './Button';
 
 const carouselData = [
   {
-    image: '/canopy-walk.jpeg',
+    image: '/canopy-walk.jpg',
     text: 'A GLOBAL COMMUNITY COMMITED TO WILDLIFE CONSERVATION',
     alt: 'Canopy walk',
   },
   {
-    image: '/wild-life.jpeg',
+    image: '/wild-life.jpg',
     text: 'PROTECTING NATURE-ONE STORY AT A TIME',
     alt: 'Kangaroos in the jungle',
   },
   {
-    image: '/safari.jpeg',
+    image: '/safari.jpg',
     text: "JOIN US IN SAFEDUARDING NATURE'S BEAUTY TODAY",
     alt: 'Safari',
   },
@@ -37,9 +37,13 @@ const Carousel = () => {
       <Slider {...settings}>
         {carouselData.map((data, index) => (
           <div className='relative -bottom-2' key={index}>
-            <img src={data.image} alt={data.alt} className='w-full h-[750px]' />
-            <div className='absolute top-0 left-0 w-full h-full bg-black bg-opacity-60'>
-              <div className='container mx-auto max-w-[1728px] flex flex-col justify-center h-full'>
+            <img
+              src={data.image}
+              alt={data.alt}
+              className='w-full h-screen object-cover'
+            />
+            <div className='container mx-auto max-w-[1728px] absolute top-0 h-full'>
+              <div className='flex flex-col justify-center h-full'>
                 <p className='text-secondary-100 text-lg font-bold'>
                   Explore Our Destinations
                 </p>

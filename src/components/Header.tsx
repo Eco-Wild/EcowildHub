@@ -137,7 +137,10 @@ export const Header = () => {
                 <li
                   key={item.id}
                   className='relative'
-                  onClick={() => handleMenuClick(item.id)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    handleMenuClick(item.id);
+                  }}
                 >
                   <Link
                     className={clsx(

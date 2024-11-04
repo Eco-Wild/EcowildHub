@@ -1,15 +1,14 @@
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import Carousel from '../../components/Carousel';
-import { Header } from '../../components/Header';
 import Button from '../../components/Button';
 import LastestNews from '../../components/LastestNews';
 import UpcomingEvents from '../../components/UpcomingEvents';
 import EcowildCount from '../../components/CountUp';
 import LatestBlogs from '../../components/LatestBlogs';
-import Footer from '../../components/Footer';
 import useScrollToTop from '../../hooks/useScrollToTop';
 import ScrollToTopButton from '../../components/ScrollToTopButton';
+import Reachout from '../../components/Reachout';
 
 const offers = [
   {
@@ -61,7 +60,6 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
       <main>
         <Carousel />
         <section className='bg-tertiary-600'>
@@ -207,7 +205,7 @@ const Home = () => {
             <span className='block w-20 h-[3px] bg-secondary-100 mb-3'></span>
             <h3 className='pt-2 pb-4 font-bold text-[32px]'>DESTINATIONS</h3>
           </div>
-          <div className='sm:flex'>
+          <div className='grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))]'>
             {destinations.map((destination, index) => (
               <div key={index} className='flex-1'>
                 <img
@@ -220,34 +218,12 @@ const Home = () => {
           </div>
         </section>
         <LastestNews />
-        <section className='relative z-10 bg-primary-400 py-20'>
-          <div className='container mx-auto max-w-[1728px]'>
-            <h4 className='font-bold text-2xl text-white'>Reach Out to Us</h4>
-            <div className='lg:flex lg:space-x-80 items-center py-3'>
-              <p className='flex-1 text-white text-lg font-light tracking-wide'>
-                Want to now more about wildlife conservation and Ecowild Hub?
-                Reach out to us for more Information.
-              </p>
-
-              <div className='justify-items-end mt-9 lg:mt-0'>
-                <Button
-                  type='button'
-                  bg='green'
-                  className='border border-white'
-                  onClick={() => navigate('./contact-us')}
-                >
-                  Contact Us
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Reachout bgColor='#228B22' buttonBorder={true} />
         <UpcomingEvents />
         <EcowildCount />
         <LatestBlogs />
         {showScrollButton && <ScrollToTopButton />}
       </main>
-      <Footer />
     </div>
   );
 };
