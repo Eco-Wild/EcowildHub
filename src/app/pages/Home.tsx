@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-import Carousel from '../../components/Carousel';
+import Carousel from '../../components/HeroCarousel';
 import Button from '../../components/Button';
 import LastestNews from '../../components/LastestNews';
 import UpcomingEvents from '../../components/UpcomingEvents';
@@ -75,6 +75,7 @@ const Home = () => {
                 )}
               >
                 <img
+                  loading='lazy'
                   src='/calendar-yellow.svg'
                   alt='A yellow calendar icon'
                   className='w-12 h-12'
@@ -95,11 +96,13 @@ const Home = () => {
           <div className='md:flex lg:space-x-52 md:space-x-16'>
             <div className='flex-1 relative'>
               <img
+                loading='lazy'
                 src={'/people-on-canopy-walk.jpg'}
                 alt='Man and woman taking pictures on canopy walk'
                 className='w-full h-full'
               />
               <img
+                loading='lazy'
                 src='/monkey.jpg'
                 alt=''
                 className='absolute top-24 lg:-right-36 lg:block hidden'
@@ -114,6 +117,7 @@ const Home = () => {
                 <div key={index} className='my-9'>
                   <div className='flex space-x-5'>
                     <img
+                      loading='lazy'
                       src='/calendar-yellow.svg'
                       alt='A yellow calendar icon'
                       className='w-12 h-12'
@@ -140,7 +144,10 @@ const Home = () => {
         </section>
         <section>
           <div className='container mx-auto max-w-6xl flex flex-col items-center text-center  text-tertiary-600'>
-            <span className='block w-20 h-[3px] bg-secondary-100 mb-3'></span>
+            <span
+              className='block w-20 h-[3px] bg-secondary-100 mb-3'
+              aria-label='A yellow line'
+            ></span>
             <h3 className='font-bold text-[32px] md:w-3/6'>
               Exploring Rwanda's Rich Animal Diversity
             </h3>
@@ -163,6 +170,7 @@ const Home = () => {
                 className='flex-1 my-3 origin-top sm:hover:scale-y-[1.04] transition-transform duration-150 ease-in'
               >
                 <img
+                  loading='lazy'
                   src={animal}
                   alt={animal.split('.')[0].slice(1)}
                   className='w-full h-auto '
@@ -173,6 +181,7 @@ const Home = () => {
         </section>
         <section className='sticky top-0 z-0 mt-10 h-screen'>
           <img
+            loading='lazy'
             src='/safari-2.jpg'
             alt='People at the safari looking at the elephants'
             className='w-full h-screen'
@@ -202,13 +211,17 @@ const Home = () => {
         </section>
         <section className='py-14 relative z-10 bg-white'>
           <div className='px-10'>
-            <span className='block w-20 h-[3px] bg-secondary-100 mb-3'></span>
+            <span
+              className='block w-20 h-[3px] bg-secondary-100 mb-3'
+              aria-label='A yellow line'
+            ></span>
             <h3 className='pt-2 pb-4 font-bold text-[32px]'>DESTINATIONS</h3>
           </div>
           <div className='grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))]'>
             {destinations.map((destination, index) => (
               <div key={index} className='flex-1'>
                 <img
+                  loading='lazy'
                   src={destination}
                   alt={destination.split('.')[0].slice(1)}
                   className='w-full h-full object-cover'

@@ -25,12 +25,15 @@ const Dropdown = ({ item, isActive, className }: Props) => {
         exit={{ opacity: 0, y: -90 }}
         transition={{ duration: 0.3 }}
         className={clsx(
-          'flex flex-col justify-center items-center absolute z-10 bg-white w-32 h-24 text-sm text-tertiary-600 text-center rounded-md',
+          'flex flex-col justify-center items-center absolute z-10 bg-white w-32 h-24 text-sm text-tertiary-600 text-center rounded-md mt-5 mb-3',
           className
         )}
       >
-        {item.dropdown.map((list) => (
-          <li className='p-2 w-10/12 opacity-70 hover:bg-cream-100 rounded-md'>
+        {item.dropdown.map((list, index) => (
+          <li
+            key={index}
+            className='px-2 py-1 my-1 w-10/12 opacity-70 hover:bg-cream-100 rounded-md'
+          >
             <Link
               className={clsx('', isActive && 'text-primary-400')}
               to={list.href}

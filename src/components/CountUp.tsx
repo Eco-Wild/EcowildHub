@@ -13,6 +13,7 @@ const Countup = () => {
       {stats.map((stat, index) => (
         <div key={index} className='flex flex-col items-center'>
           <img
+            loading='lazy'
             src='/elephant-icon.svg'
             alt='An elephant icon'
             className='mb-4 mt-8'

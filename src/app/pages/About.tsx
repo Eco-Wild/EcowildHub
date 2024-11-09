@@ -1,30 +1,18 @@
-import Button from '../../components/Button';
 import OurStory from '../../components/OurStory';
 import CustomerReviews from '../../components/CustomerReviews';
 import Reachout from '../../components/Reachout';
 import Team from '../../components/Team';
+import HeroSectionHalf from '../../components/HeroSectionHalf';
 
 const AboutUs = () => {
   return (
     <section>
-      <section className='relative'>
-        <img
-          src='/hills-trees.jpg'
-          alt='Hills and trees'
-          className='w-full h-[436px] object-cover'
-        />
-        <div className=' absolute top-0 left-0 w-full h-full bg-black bg-opacity-40'>
-          <div className='container mx-auto max-w-[1728px] flex flex-col justify-center h-full'>
-            {' '}
-            <p className='font-extrabold text-2xl text-secondary-100'>
-              Explore more with us
-            </p>
-            <h2 className='font-[900] font-REM text-[40px] text-white py-3'>
-              About Us
-            </h2>
-          </div>
-        </div>
-      </section>
+      <HeroSectionHalf
+        src='/hills-trees.jpg'
+        title='ABOUT US'
+        explore='Explore more with us'
+        alt='Hills and trees'
+      />
       <section className='py-12 bg-white text-tertiary-600 tracking-wide'>
         <div className='container mx-auto max-w-5xl flex flex-col items-center text-center'>
           <span className=' block w-20 h-[3px] bg-secondary-100 mb-3'></span>
@@ -33,6 +21,7 @@ const AboutUs = () => {
           </h3>
           <p className='text-left flex items-start gap-5 py-5'>
             <img
+              loading='lazy'
               src='/calendar-yellow.svg'
               alt='A yellow calendar icon'
               className=''
@@ -50,7 +39,7 @@ const AboutUs = () => {
             Help us to protect wildlife around the world.
           </h5>
         </div>
-        <hr className='container mx-auto my-6 md:w-[1472px] h-px text-gray-200 bg-gray-200 border-0' />
+        <hr className='container mx-auto my-6 md:w-[1472px] h-px text-gray-200 bg-tertiary-600 opacity-10 border-0' />
       </section>
       <OurStory />
       <CustomerReviews />

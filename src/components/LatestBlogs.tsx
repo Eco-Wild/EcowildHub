@@ -1,26 +1,4 @@
-import { Icon } from '@iconify/react';
-import { Link } from 'react-router-dom';
-
-const data = [
-  {
-    image: '/people-at-the-safari.jpg',
-    heading: 'Protecting Wildlife for a Sustainable Future',
-    date: '2 weeks ago',
-    id: crypto.randomUUID(),
-  },
-  {
-    image: '/man-and-woman.jpg',
-    heading: 'Protecting Wildlife for a Sustainable Future',
-    date: '2 weeks ago',
-    id: crypto.randomUUID(),
-  },
-  {
-    image: '/public/lady-arms-open-on-canopy-walk.jpg',
-    heading: 'Protecting Wildlife for a Sustainable Future',
-    date: '2 weeks ago',
-    id: crypto.randomUUID(),
-  },
-];
+import Blog from './Blog';
 
 const LatestBlogs = () => {
   return (
@@ -38,42 +16,7 @@ const LatestBlogs = () => {
           strategies and the impact of climate change on biodiversity.
         </p>
 
-        <div className='sm:grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 w-full'>
-          {data.map((data) => (
-            <div key={data.id} className='mb-7 md:mb-0'>
-              <img
-                src={data.image}
-                alt={data.image.split('.')[0].slice(1)}
-                className='w-full sm:h-[404px] object-cover'
-              />
-              <div className='bg-cream-100 px-8 pt-12 pb-14 flex flex-col items-center relative'>
-                <span className='flex'>
-                  <img
-                    src='/calendar-green.svg'
-                    alt='A green calendar icon'
-                    className='mb-2 mr-1'
-                  />
-                  {data.date}
-                </span>
-                <h5 className='md:max-w-[394px] font-bold text-xl pt-3'>
-                  {data.heading}
-                </h5>
-                <button
-                  type='button'
-                  className='absolute -bottom-7 bg-cream-200 border-[6px] border-white w-14 h-14 rounded-full'
-                >
-                  <Link to={`/blog/${data.id}/blog-details`}>
-                    {' '}
-                    <Icon
-                      icon='formkit:arrowright'
-                      className='ml-[5px] text-white '
-                    />
-                  </Link>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+        <Blog bgColor='#FFFDD0' />
       </div>
     </section>
   );

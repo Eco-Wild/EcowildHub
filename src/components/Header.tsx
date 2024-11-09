@@ -24,7 +24,7 @@ const navItems = [
     name: 'Publish',
     href: '',
     dropdown: [
-      { name: 'News Letter', href: '/publish/news-letter' },
+      { name: 'News', href: '/publish/news-letter' },
       { name: 'Blogs', href: '/publish/blogs' },
     ],
     id: crypto.randomUUID(),
@@ -48,8 +48,9 @@ export const Header = () => {
         <div className='flex h-24 bg-white items-center justify-between space-x-3 py-3'>
           <a href='/'>
             <img
-              className='h-[64px] w-20 -ml-3'
+              loading='lazy'
               src='/logo.svg'
+              className='h-[64px] w-20 -ml-3'
               alt='ecowildhub logo'
             />
           </a>
@@ -79,7 +80,7 @@ export const Header = () => {
             />
           </button>
 
-          <ul className='hidden items-center space-x-12 lg:flex'>
+          <ul className='hidden items-center space-x-11 lg:flex'>
             {navItems.map((item) => {
               const isActive = item.href === location.pathname;
               return (
@@ -119,7 +120,7 @@ export const Header = () => {
           <div className='lg:flex space-x-4 hidden'>
             {' '}
             <Button type='button' bg='white' onClick={() => setIsOpen(false)}>
-              <Link to='/contact-us'>Contact Us</Link>
+              <Link to='/contact'>Contact Us</Link>
             </Button>
             <Button type='button' bg='green' onClick={() => setIsOpen(false)}>
               <Link to='/donate'>Donate</Link>
@@ -176,7 +177,7 @@ export const Header = () => {
             className='block my-5'
             onClick={() => setIsOpen(false)}
           >
-            <Link to='/contact-us'>Contact Us</Link>
+            <Link to='/contact'>Contact Us</Link>
           </Button>
           <Button
             type='button'
