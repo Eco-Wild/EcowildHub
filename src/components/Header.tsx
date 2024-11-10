@@ -24,7 +24,7 @@ const navItems = [
     name: 'Publish',
     href: '',
     dropdown: [
-      { name: 'News', href: '/publish/news-letter' },
+      { name: 'News', href: '/publish/news' },
       { name: 'Blogs', href: '/publish/blogs' },
     ],
     id: crypto.randomUUID(),

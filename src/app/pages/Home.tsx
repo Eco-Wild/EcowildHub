@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import Carousel from '../../components/HeroCarousel';
 import Button from '../../components/Button';
@@ -25,7 +24,7 @@ const offers = [
   },
 ];
 
-const aboutEcowiild = [
+const aboutEcowild = [
   {
     heading: 'ABOUT US',
     text: 'EcoWildHub is a Rwanda-based platform dedicated to wildlife conservation and environmental sustainability. It engages communities and eco-conscious individuals through educational content and interactive initiatives, raising awareness and encouraging action to protect biodiversity.',
@@ -67,12 +66,7 @@ const Home = () => {
             {offers.map((offer, index) => (
               <div
                 key={index}
-                className={clsx(
-                  'flex-1 flex justify-center space-x-5 md:py-12 my-6 pr-2',
-                  index !== offers.length - 1
-                    ? 'md:border-r border-[#5a5f71]'
-                    : ''
-                )}
+                className='flex-1 flex justify-center space-x-5 md:py-12 my-6 pr-2 md:border-r border-[#5a5f71] last:border-r-0'
               >
                 <img
                   loading='lazy'
@@ -113,7 +107,7 @@ const Home = () => {
               <h2 className='pt-4 pb-7 font-bold text-[32px]'>
                 Uniting Communities for Wildlife Conservation and Sustainability
               </h2>
-              {aboutEcowiild.map((data, index) => (
+              {aboutEcowild.map((data, index) => (
                 <div key={index} className='my-9'>
                   <div className='flex space-x-5'>
                     <img

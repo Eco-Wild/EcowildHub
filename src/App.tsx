@@ -9,6 +9,7 @@ import Contact from './app/pages/Contact';
 import ImageGallery from './app/pages/ImageGallery';
 import Destinations from './app/pages/Destinations';
 import DestinationDetails from './app/pages/DestinationDetails';
+import News from './app/pages/news';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           path='/publish/blogs/:id/blog-details'
           element={<BlogDetails />}
         ></Route>
+        <Route path='/publish/news' element={<News />}></Route>
         <Route path='media/image-gallery' element={<ImageGallery />}></Route>
       </Routes>
       <Footer />

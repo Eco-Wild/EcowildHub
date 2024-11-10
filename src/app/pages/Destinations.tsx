@@ -45,7 +45,7 @@ const Destinations = () => {
                     <img
                       src={destination.image}
                       alt={destination.name}
-                      className='w-full h-auto object-contain'
+                      className='w-full h-auto object-cover'
                     />
                     <div className='absolute left-3 bottom-3 text-xl text-white'>
                       <span className='flex items-center gap-2 opacity-50'>

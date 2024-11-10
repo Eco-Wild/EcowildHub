@@ -125,3 +125,48 @@ export const destinations = [
     id: '14',
   },
 ];
+
+export const news = [
+  {
+    image: '/destination6.jpg',
+    title: 'Rwanda is Putting it’s Forest First in Fighting Climate Change',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+    date: '18. 05. 2024',
+    id: '1',
+  },
+  {
+    image: '/destination6.jpg',
+    title: 'Rwanda is Putting it’s Forest First in Fighting Climate Change',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+    date: '18. 05. 2024',
+    id: '2',
+  },
+  {
+    image: '/destination6.jpg',
+    title: 'Rwanda is Putting it’s Forest First in Fighting Climate Change',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+    date: '18. 05. 2024',
+    id: '3',
+  },
+  {
+    image: '/destination6.jpg',
+    title: 'Rwanda is Putting it’s Forest First in Fighting Climate Change',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+    date: '18. 05. 2024',
+    id: '4',
+  },
+  {
+    image: '/destination6.jpg',
+    title: 'Rwanda is Putting it’s Forest First in Fighting Climate Change',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+    date: '18. 05. 2024',
+    id: '5',
+  },
+  {
+    image: '/destination6.jpg',
+    title: 'Rwanda is Putting it’s Forest First in Fighting Climate Change',
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
+    date: '18. 05. 2024',
+    id: '6',
+  },
+];
