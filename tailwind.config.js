@@ -21,6 +21,10 @@ export default {
       fontFamily: {
         REM: '"REM", "sans-serif"',
       },
+      screens: {
+        xs: '420px',
+        xxs: "350px"
+      },
     },
   },
   plugins: [],

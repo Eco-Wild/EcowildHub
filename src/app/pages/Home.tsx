@@ -1,13 +1,13 @@
-import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-import Carousel from '../../components/Carousel';
-import { Header } from '../../components/Header';
+import Carousel from '../../components/HeroCarousel';
 import Button from '../../components/Button';
 import LastestNews from '../../components/LastestNews';
 import UpcomingEvents from '../../components/UpcomingEvents';
-import EcowildCount from '../../components/EcowildCount';
+import EcowildCount from '../../components/CountUp';
 import LatestBlogs from '../../components/LatestBlogs';
-import Footer from '../../components/Footer';
+import useScrollToTop from '../../hooks/useScrollToTop';
+import ScrollToTopButton from '../../components/ScrollToTopButton';
+import Reachout from '../../components/Reachout';
 
 const offers = [
   {
@@ -24,7 +24,7 @@ const offers = [
   },
 ];
 
-const aboutEcowiild = [
+const aboutEcowild = [
   {
     heading: 'ABOUT US',
     text: 'EcoWildHub is a Rwanda-based platform dedicated to wildlife conservation and environmental sustainability. It engages communities and eco-conscious individuals through educational content and interactive initiatives, raising awareness and encouraging action to protect biodiversity.',
@@ -55,25 +55,21 @@ const destinations = [
 
 const Home = () => {
   const navigate = useNavigate();
+  const showScrollButton = useScrollToTop();
+
   return (
     <div>
-      <Header />
       <main>
         <Carousel />
-
         <section className='bg-tertiary-600'>
-          <div className='container mx-auto max-w-[1728px] lg:flex lg:space-x-12'>
+          <div className='container mx-auto max-w-[1728px] md:flex justify-between gap-6 md:py-0 py-10 '>
             {offers.map((offer, index) => (
               <div
                 key={index}
-                className={clsx(
-                  'flex-1 flex justify-center space-x-5 lg:pr-12 py-12 lg:my-4',
-                  index !== offers.length - 1
-                    ? 'lg:border-r border-[#5a5f71]'
-                    : ''
-                )}
+                className='flex-1 flex justify-center space-x-5 md:py-12 my-6 pr-2 md:border-r border-[#5a5f71] last:border-r-0'
               >
                 <img
+                  loading='lazy'
                   src='/calendar-yellow.svg'
                   alt='A yellow calendar icon'
                   className='w-12 h-12'
@@ -90,15 +86,17 @@ const Home = () => {
             ))}
           </div>
         </section>
-        <section className='container mx-auto max-w-[1728px] lg:pt-44 lg:pb-40 py-32'>
+        <section className='container mx-auto max-w-[1728px] lg:pt-44 lg:pb-36 pt-32 pb-28'>
           <div className='md:flex lg:space-x-52 md:space-x-16'>
             <div className='flex-1 relative'>
               <img
+                loading='lazy'
                 src={'/people-on-canopy-walk.jpg'}
                 alt='Man and woman taking pictures on canopy walk'
                 className='w-full h-full'
               />
               <img
+                loading='lazy'
                 src='/monkey.jpg'
                 alt=''
                 className='absolute top-24 lg:-right-36 lg:block hidden'
@@ -109,10 +107,11 @@ const Home = () => {
               <h2 className='pt-4 pb-7 font-bold text-[32px]'>
                 Uniting Communities for Wildlife Conservation and Sustainability
               </h2>
-              {aboutEcowiild.map((data, index) => (
+              {aboutEcowild.map((data, index) => (
                 <div key={index} className='my-9'>
                   <div className='flex space-x-5'>
                     <img
+                      loading='lazy'
                       src='/calendar-yellow.svg'
                       alt='A yellow calendar icon'
                       className='w-12 h-12'
@@ -137,9 +136,12 @@ const Home = () => {
             </Button>
           </div>
         </section>
-        <section className=''>
+        <section>
           <div className='container mx-auto max-w-6xl flex flex-col items-center text-center  text-tertiary-600'>
-            <span className='block w-20 h-[3px] bg-secondary-100 mb-3'></span>
+            <span
+              className='block w-20 h-[3px] bg-secondary-100 mb-3'
+              aria-label='A yellow line'
+            ></span>
             <h3 className='font-bold text-[32px] md:w-3/6'>
               Exploring Rwanda's Rich Animal Diversity
             </h3>
@@ -162,6 +164,7 @@ const Home = () => {
                 className='flex-1 my-3 origin-top sm:hover:scale-y-[1.04] transition-transform duration-150 ease-in'
               >
                 <img
+                  loading='lazy'
                   src={animal}
                   alt={animal.split('.')[0].slice(1)}
                   className='w-full h-auto '
@@ -172,6 +175,7 @@ const Home = () => {
         </section>
         <section className='sticky top-0 z-0 mt-10 h-screen'>
           <img
+            loading='lazy'
             src='/safari-2.jpg'
             alt='People at the safari looking at the elephants'
             className='w-full h-screen'
@@ -201,13 +205,17 @@ const Home = () => {
         </section>
         <section className='py-14 relative z-10 bg-white'>
           <div className='px-10'>
-            <span className='block w-20 h-[3px] bg-secondary-100 mb-3'></span>
+            <span
+              className='block w-20 h-[3px] bg-secondary-100 mb-3'
+              aria-label='A yellow line'
+            ></span>
             <h3 className='pt-2 pb-4 font-bold text-[32px]'>DESTINATIONS</h3>
           </div>
-          <div className='sm:flex'>
+          <div className='grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))]'>
             {destinations.map((destination, index) => (
               <div key={index} className='flex-1'>
                 <img
+                  loading='lazy'
                   src={destination}
                   alt={destination.split('.')[0].slice(1)}
                   className='w-full h-full object-cover'
@@ -217,33 +225,12 @@ const Home = () => {
           </div>
         </section>
         <LastestNews />
-        <section className='relative z-10 bg-primary-400 py-20'>
-          <div className='container mx-auto max-w-[1728px]'>
-            <h4 className='font-bold text-2xl text-white'>Reach Out to Us</h4>
-            <div className='lg:flex lg:space-x-80 items-center py-3'>
-              <p className='flex-1 text-white text-lg font-light tracking-wide'>
-                Want to now more about wildlife conservation and Ecowild Hub?
-                Reach out to us for more Information.
-              </p>
-
-              <div className='justify-items-end mt-9 lg:mt-0'>
-                <Button
-                  type='button'
-                  bg='green'
-                  className='border border-white'
-                  onClick={() => navigate('./contact-us')}
-                >
-                  Contact Us
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Reachout bgColor='#228B22' buttonBorder={true} />
         <UpcomingEvents />
         <EcowildCount />
         <LatestBlogs />
+        {showScrollButton && <ScrollToTopButton />}
       </main>
-      <Footer />
     </div>
   );
 };

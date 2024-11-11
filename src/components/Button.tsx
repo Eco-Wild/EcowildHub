@@ -6,16 +6,24 @@ interface Props {
   children: React.ReactNode;
   className?: string;
   type?: 'submit' | 'button' | 'reset';
-
+  disabled?: boolean;
   onClick?: () => void;
 }
 
-export const Button = ({ children, type, className, bg, onClick }: Props) => {
+export const Button = ({
+  children,
+  type,
+  className,
+  bg,
+  disabled,
+  onClick,
+}: Props) => {
   return (
     <button
       type={type}
+      disabled={disabled}
       className={clsx(
-        'h-[54px] font-semibold text-sm px-12 rounded-md',
+        'h-[54px] font-semibold text-sm px-11 rounded-md',
         bg === 'white'
           ? 'bg-white border-2 border-primary-400 text-primary-400'
           : 'bg-primary-400 text-white',

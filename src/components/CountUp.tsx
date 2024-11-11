@@ -7,12 +7,13 @@ const stats = [
   { end: 50, suffix: '+', name: 'Events' },
 ];
 
-const EcowildCount = () => {
+const Countup = () => {
   return (
-    <section className='container mx-auto max-w-[1728px] relative z-10 flex flex-wrap justify-between py-14 text-white'>
+    <section className='container mx-auto max-w-[1728px] relative z-10 flex flex-wrap xxs:justify-between justify-center gap-3 py-14 text-white'>
       {stats.map((stat, index) => (
         <div key={index} className='flex flex-col items-center'>
           <img
+            loading='lazy'
             src='/elephant-icon.svg'
             alt='An elephant icon'
             className='mb-4 mt-8'
@@ -22,8 +23,16 @@ const EcowildCount = () => {
             end={stat.end}
             duration={2.5}
             suffix={stat.suffix}
-            className='font-[900] text-7xl py-2 block'
-          />
+            enableScrollSpy={true}
+            scrollSpyOnce={true}
+          >
+            {({ countUpRef }) => (
+              <span
+                className='font-[900] text-7xl py-2 block'
+                ref={countUpRef}
+              />
+            )}
+          </CountUp>
           <span className='block text-lg'>{stat.name}</span>
         </div>
       ))}
@@ -31,4 +40,4 @@ const EcowildCount = () => {
   );
 };
 
-export default EcowildCount;
+export default Countup;

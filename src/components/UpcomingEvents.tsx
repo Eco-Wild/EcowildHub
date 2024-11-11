@@ -21,6 +21,7 @@ const UpcomingEvents = () => {
       <div className='md:flex md:space-x-24  bg-white'>
         <div className='flex-1'>
           <img
+            loading='lazy'
             src='/big-gorilla.jpg'
             alt='A big gorilla'
             className=' w-full h-full'
@@ -28,7 +29,10 @@ const UpcomingEvents = () => {
         </div>
         <div className='flex-1 self-center justify-self-center p-6'>
           <div className='mb-8'>
-            <span className='block w-20 h-[3px] bg-secondary-100 mb-3'></span>
+            <span
+              className='block w-20 h-[3px] bg-secondary-100 mb-3'
+              aria-label='A yellow line'
+            ></span>
             <h3 className='font-bold text-[32px]'>UPCOMING EVENTS</h3>
           </div>
           <div>
@@ -36,6 +40,7 @@ const UpcomingEvents = () => {
               <div key={data.id} className='lg:flex gap-x-16 mb-10'>
                 <div className='relative'>
                   <img
+                    loading='lazy'
                     src={data.image}
                     alt={data.image.split('.')[0].slice(1)}
                     className='w-full h-full object-cover mb-2 lg:mb-0'
@@ -48,6 +53,7 @@ const UpcomingEvents = () => {
                 </div>
                 <div className='flex-1'>
                   <img
+                    loading='lazy'
                     src='/calendar-green.svg'
                     alt='A green calendar icon'
                     className='inline-block align-top'
