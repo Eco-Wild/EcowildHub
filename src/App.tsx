@@ -3,13 +3,15 @@ import Home from './app/pages/Home';
 import AboutUs from './app/pages/About';
 import { Header } from './components/Header';
 import Footer from './components/Footer';
-import Blogs from './app/Blogs';
+import Blogs from './app/pages/Blogs';
 import BlogDetails from './app/pages/BlogDetails';
 import Contact from './app/pages/Contact';
 import ImageGallery from './app/pages/ImageGallery';
 import Destinations from './app/pages/Destinations';
 import DestinationDetails from './app/pages/DestinationDetails';
 import News from './app/pages/news';
+import NewsDetails from './app/pages/NewsDetails';
+import Events from './app/pages/Events';
 
 function App() {
   return (
@@ -29,7 +31,12 @@ function App() {
           path='/publish/blogs/:id/blog-details'
           element={<BlogDetails />}
         ></Route>
+        <Route path='/events' element={<Events />}></Route>
         <Route path='/publish/news' element={<News />}></Route>
+        <Route
+          path='/publish/news/:id/news-details'
+          element={<NewsDetails />}
+        ></Route>
         <Route path='media/image-gallery' element={<ImageGallery />}></Route>
       </Routes>
       <Footer />

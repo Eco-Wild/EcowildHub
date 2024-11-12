@@ -97,15 +97,14 @@ export const Header = () => {
                     to={item.href}
                   >
                     {item.name}
-                  </Link>
-                  {item.dropdown && (
-                    <button type='button'>
+
+                    {item.dropdown && (
                       <Icon
                         icon='material-symbols-light:keyboard-arrow-down-rounded'
-                        className='inline-block ml-1 w-6 h-6'
+                        className='inline-flex items-center ml-1 w-6 h-6'
                       />
-                    </button>
-                  )}
+                    )}
+                  </Link>
                   {item.dropdown && item.id === activeDropdown && (
                     <Dropdown
                       item={item}
@@ -151,15 +150,15 @@ export const Header = () => {
                     to={item.href}
                   >
                     {item.name}
-                  </Link>
-                  {item.dropdown && (
-                    <button type='button'>
+
+                    {item.dropdown && (
                       <Icon
                         icon='material-symbols-light:keyboard-arrow-down-rounded'
-                        className='w-6 h-6'
+                        className='inline-flex items-center ml-1 w-6 h-6'
                       />
-                    </button>
-                  )}
+                    )}
+                  </Link>
+
                   {item.dropdown && item.id === activeDropdown && (
                     <Dropdown
                       item={item}

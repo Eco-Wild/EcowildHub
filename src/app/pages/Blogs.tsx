@@ -1,5 +1,5 @@
-import HeroSectionHalf from '../components/HeroSectionHalf';
-import Blog from '../components/Blog';
+import HeroSectionHalf from '../../components/HeroSectionHalf';
+import Blog from '../../components/Blog';
 
 const Blogs = () => {
   return (

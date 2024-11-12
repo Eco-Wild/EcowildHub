@@ -36,7 +36,7 @@ const DestinationDetails = () => {
             ))}
           </div>
           <div className='px-7'>
-            <h3 className='font-bold font-REM text-[32px]'>
+            <h3 className='font-bold font-REM text-[32px] mb-4'>
               Beautiful view at Radisson blue hotel
             </h3>
             <p className='opacity-60'>
