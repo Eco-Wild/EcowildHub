@@ -9,6 +9,7 @@ export default {
         },
         secondary: {
           100: '#F7BF39',
+          200: '#6B6B6B',
         },
         tertiary: {
           600: '#141B34',
@@ -23,7 +24,7 @@ export default {
       },
       screens: {
         xs: '420px',
-        xxs: "350px"
+        xxs: '350px',
       },
     },
   },

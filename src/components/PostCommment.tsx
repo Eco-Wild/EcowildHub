@@ -21,7 +21,7 @@ const ValidationSchema = yup.object({
       /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
       'Please enter a valid email address with a proper domain'
     ),
-  message: yup
+  comment: yup
     .string()
     .required('Comment is required')
     .min(3, 'Should contain minimum of 8 characters'),
@@ -56,7 +56,7 @@ const PostCommment = () => {
 
   const onSubmit: SubmitHandler<Comment> = (data: Comment, e) => {
     e.preventDefault();
-    console.log('Clicked');
+
     const commentsArr = [...comments, data];
 
     localStorage.setItem('comments', JSON.stringify(commentsArr));

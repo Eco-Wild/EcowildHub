@@ -12,7 +12,7 @@ export const blogs = [
     id: '2',
   },
   {
-    image: '/public/lady-arms-open-on-canopy-walk.jpg',
+    image: '/lady-arms-open-on-canopy-walk.jpg',
     title: 'Protecting Wildlife for a Sustainable Future',
     date: '2 weeks ago',
     id: '3',
@@ -167,6 +167,69 @@ export const news = [
     title: 'Rwanda is Putting it’s Forest First in Fighting Climate Change',
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
     date: '18. 05. 2024',
+    id: '6',
+  },
+];
+
+export const events = [
+  {
+    image: '/sable-antelope.jpg',
+    heading: 'The Wild Update: Conservation News & Insights',
+    author: {
+      image: './profile-pic.svg',
+      name: 'Jackson Malik',
+    },
+    date: '2 weeks ago',
+    id: '1',
+  },
+  {
+    image: '/zebras.jpg',
+    heading: 'The Wild Update: Conservation News & Insights',
+    author: {
+      image: './profile-pic.svg',
+      name: 'Jackson Malik',
+    },
+    date: '2 weeks ago',
+    id: '2',
+  },
+  {
+    image: '/gorilla.jpg',
+    heading: 'The Wild Update: Conservation News & Insights',
+    author: {
+      image: './profile-pic.svg',
+      name: 'Jackson Malik',
+    },
+    date: '2 weeks ago',
+    id: '3',
+  },
+  {
+    image: '/lions.jpg',
+    heading: 'The Wild Update: Conservation News & Insights',
+    author: {
+      image: './profile-pic.svg',
+      name: 'Jackson Malik',
+    },
+    date: '2 weeks ago',
+    id: '4',
+  },
+  {
+    image: '/monkeys.jpg',
+    heading: 'The Wild Update: Conservation News & Insights',
+    author: {
+      image: './profile-pic.svg',
+      name: 'Jackson Malik',
+    },
+    date: '2 weeks ago',
+    id: '5',
+  },
+  {
+    image: '/elephants.jpg',
+    heading: 'The Wild Update: Conservation News & Insights',
+    author: {
+      image: './profile-pic.svg',
+      name: 'Jackson Malik',
+    },
+    date: '2 weeks ago',
     id: '6',
   },
 ];

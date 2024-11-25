@@ -4,7 +4,7 @@ import Reachout from '../../components/Reachout';
 import Team from '../../components/Team';
 import HeroSectionHalf from '../../components/HeroSectionHalf';
 
-const AboutUs = () => {
+const About = () => {
   return (
     <section>
       <HeroSectionHalf
@@ -49,4 +49,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default About;

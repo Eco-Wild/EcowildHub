@@ -64,7 +64,7 @@ const OurStory = () => {
               </h5>
             </div>
           </div>
-          <div className='self-center flex flex-row sm:flex-col sm:justify-center justify-around sm:space-y-12 sm:border-l sm:border-t-0 border-t sm:h-[652px] w-full'>
+          <div className='self-stretch flex flex-row sm:flex-col sm:justify-center justify-around sm:space-y-12 sm:border-l sm:border-t-0 border-t'>
             {numbers.map((number, index) => (
               <span
                 key={index}

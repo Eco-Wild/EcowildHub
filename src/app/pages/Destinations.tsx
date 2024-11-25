@@ -1,10 +1,10 @@
 import { Icon } from '@iconify/react/dist/iconify.js';
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+// import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+import Masonry from 'react-masonry-css';
 import { destinations } from '../../utils/DummyData';
 import HeroSectionHalf from '../../components/HeroSectionHalf';
 import Button from '../../components/Button';
 import { Link } from 'react-router-dom';
-// import clsx from 'clsx';
 
 const Destinations = () => {
   return (
@@ -33,32 +33,39 @@ const Destinations = () => {
           </div>
         </section>
         <section className='pt-12 pb-32'>
-          <ResponsiveMasonry
-            columnsCountBreakPoints={{ 300: 1, 500: 2, 700: 3, 900: 3, 950: 4 }}
+          <Masonry
+            breakpointCols={{
+              300: 1,
+              500: 1,
+              700: 2,
+              900: 3,
+              default: 4,
+            }}
+            className='my-masonry-grid'
+            columnClassName='my-masonry-grid_column'
           >
-            <Masonry gutter='20px'>
-              {destinations.map((destination) => (
-                <div key={destination.id} className='relative'>
-                  <Link
-                    to={`/destinations/${destination.id}/destination-details`}
-                  >
-                    <img
-                      src={destination.image}
-                      alt={destination.name}
-                      className='w-full h-auto object-cover'
-                    />
-                    <div className='absolute left-3 bottom-3 text-xl text-white'>
-                      <span className='flex items-center gap-2 opacity-50'>
-                        <Icon icon='fluent:location-20-regular' />
-                        {destination.location}
-                      </span>
-                      <h6>{destination.name}</h6>
-                    </div>
-                  </Link>
-                </div>
-              ))}
-            </Masonry>
-          </ResponsiveMasonry>
+            {destinations.map((destination) => (
+              <div key={destination.id} className='relative pt-5'>
+                <Link
+                  to={`/destinations/${destination.id}/destination-details`}
+                >
+                  <img
+                    loading='lazy'
+                    src={destination.image}
+                    alt={destination.name}
+                    className='w-full h-auto object-cover'
+                  />
+                  <div className='absolute left-3 bottom-3 lg:text-xl text-white'>
+                    <span className='flex items-center gap-2 opacity-50'>
+                      <Icon icon='fluent:location-20-regular' />
+                      {destination.location}
+                    </span>
+                    <h6>{destination.name}</h6>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </Masonry>
         </section>
       </div>
     </section>

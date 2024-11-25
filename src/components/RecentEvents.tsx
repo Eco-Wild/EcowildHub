@@ -9,11 +9,9 @@ const RecentEvent = () => {
   );
   const events = searchedEvents.length > 0 ? searchedEvents : blogs;
 
-  console.log(searchedEvents);
-
   return (
     <section>
-      <div className='relative text-white mt-8 lg:mt-0'>
+      <div className='relative text-white mt-8 md:mt-0'>
         <input
           type='text'
           value={value}

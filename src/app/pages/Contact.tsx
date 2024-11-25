@@ -9,6 +9,8 @@ import { TextAreaField } from '../../components/hook-form/TextAreaField';
 import CheckBox from '../../components/hook-form/CheckBox';
 import { ContactValues } from '../../utils/types';
 import Button from '../../components/Button';
+import { useState } from 'react';
+import Terms from './Terms';
 
 const ValidationSchema = yup.object({
   name: yup
@@ -39,12 +41,15 @@ const ValidationSchema = yup.object({
 });
 
 const Contact = () => {
+  const [showTerms, setShowTerms] = useState(false);
+
   const {
     control,
     register,
     reset,
     watch,
     setValue,
+    getValues,
     handleSubmit,
     formState: { errors, isSubmitting, isSubmitted },
   } = useForm<ContactValues>({
@@ -53,9 +58,17 @@ const Contact = () => {
   });
 
   const message = watch('message');
+  const acceptTerms = watch('acceptTerms');
+  const isAgreed = getValues('acceptTerms');
+
+  const handleAgreement = () => {
+    setValue('acceptTerms', !isAgreed, { shouldValidate: true });
+    setShowTerms(false);
+  };
 
   const onSubmit: SubmitHandler<ContactValues> = (data: ContactValues, e) => {
     e?.preventDefault();
+
     return new Promise<void>((resolve) => {
       setTimeout(() => {
         if (isSubmitted) {
@@ -180,8 +193,10 @@ const Contact = () => {
                   registration={{ ...register('acceptTerms') }}
                   label='I Accept to the'
                   label2='Terms & Conditions'
+                  value={acceptTerms}
                   errorMessage={errors.acceptTerms?.message}
                   hasError={errors.acceptTerms}
+                  setShowTerms={setShowTerms}
                 />
                 <Button type='submit' bg='green' disabled={isSubmitting}>
                   {isSubmitting ? (
@@ -201,6 +216,9 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      {showTerms && (
+        <Terms setShowTerms={setShowTerms} handleAgreement={handleAgreement} />
+      )}
     </section>
   );
 };
