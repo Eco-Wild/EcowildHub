@@ -1,8 +1,7 @@
-import clsx from 'clsx';
-import { useNavigate } from 'react-router-dom';
-import Carousel from '../../components/Carousel';
+import { Link } from 'react-router-dom';
+import Carousel from '../../components/HeroCarousel';
 import Button from '../../components/Button';
-import LastestNews from '../../components/LastestNews';
+import LatestNews from '../../components/LatestNews';
 import UpcomingEvents from '../../components/UpcomingEvents';
 import EcowildCount from '../../components/CountUp';
 import LatestBlogs from '../../components/LatestBlogs';
@@ -13,30 +12,38 @@ import Reachout from '../../components/Reachout';
 const offers = [
   {
     heading: 'NEW EVENTS',
-    text: 'Wildlife conservation events focus on raising awareness, promoting action, and supporting initiatives to protect endangered species and habitats.',
+    text: 'Wildlife conservation events focus on raising awareness, promoting action, and\
+     supporting initiatives to protect endangered species and habitats.',
   },
   {
     heading: 'NEW BLOGS',
-    text: 'Wildlife conservation blogs provide updates on efforts to protect endangered species and ecosystems, share success stories, and explore emerging challenges.',
+    text: 'Wildlife conservation blogs provide updates on efforts to protect endangered species and\
+    ecosystems, share success stories, and explore emerging challenges.',
   },
   {
     heading: 'DESTINATIONS',
-    text: 'Wildlife conservation destinations are natural areas like national parks, reserves, and sanctuaries where visitors can experience nature while supporting conservation efforts. ',
+    text: 'Wildlife conservation destinations are natural areas like national parks, reserves, and\
+    sanctuaries where visitors can experience nature while supporting conservation efforts. ',
   },
 ];
 
-const aboutEcowiild = [
+const aboutEcowild = [
   {
     heading: 'ABOUT US',
-    text: 'EcoWildHub is a Rwanda-based platform dedicated to wildlife conservation and environmental sustainability. It engages communities and eco-conscious individuals through educational content and interactive initiatives, raising awareness and encouraging action to protect biodiversity.',
+    text: 'EcoWildHub is a Rwanda-based platform dedicated to wildlife conservation and environmental sustainability.\
+     It engages communities and eco-conscious individuals through educational content and interactive initiatives, raising\
+      awareness and encouraging action to protect biodiversity.',
   },
   {
     heading: 'OUR MISSION',
-    text: 'To promote wildlife conservation by providing engaging content and interactive experiences, including blogs, news, and events, while empowering communities to learn, participate, and contribute to conservation efforts.',
+    text: 'To promote wildlife conservation by providing engaging content and interactive experiences, including blogs, news,\
+     and events, while empowering communities to learn, participate, and contribute to conservation efforts.',
   },
   {
     heading: 'OUR VISION',
-    text: 'To create a world where people and nature coexist in harmony, driven by community empowerment, innovative conservation solutions, and a global commitment to protecting biodiversity and combating climate change—ensuring that everyone, including communities and ecosystems, benefits from a sustainable and thriving environment.',
+    text: 'To create a world where people and nature coexist in harmony, driven by community empowerment, innovative conservation\
+     solutions, and a global commitment to protecting biodiversity and combating climate change—ensuring that everyone, including\
+      communities and ecosystems, benefits from a sustainable and thriving environment.',
   },
 ];
 
@@ -55,7 +62,6 @@ const destinations = [
 ];
 
 const Home = () => {
-  const navigate = useNavigate();
   const showScrollButton = useScrollToTop();
 
   return (
@@ -67,14 +73,10 @@ const Home = () => {
             {offers.map((offer, index) => (
               <div
                 key={index}
-                className={clsx(
-                  'flex-1 flex justify-center space-x-5 md:py-12 my-6 pr-2',
-                  index !== offers.length - 1
-                    ? 'md:border-r border-[#5a5f71]'
-                    : ''
-                )}
+                className='flex-1 flex justify-center space-x-5 md:py-12 my-6 pr-2 md:border-r border-[#5a5f71] last:border-r-0'
               >
                 <img
+                  loading='lazy'
                   src='/calendar-yellow.svg'
                   alt='A yellow calendar icon'
                   className='w-12 h-12'
@@ -95,11 +97,13 @@ const Home = () => {
           <div className='md:flex lg:space-x-52 md:space-x-16'>
             <div className='flex-1 relative'>
               <img
+                loading='lazy'
                 src={'/people-on-canopy-walk.jpg'}
                 alt='Man and woman taking pictures on canopy walk'
                 className='w-full h-full'
               />
               <img
+                loading='lazy'
                 src='/monkey.jpg'
                 alt=''
                 className='absolute top-24 lg:-right-36 lg:block hidden'
@@ -110,10 +114,11 @@ const Home = () => {
               <h2 className='pt-4 pb-7 font-bold text-[32px]'>
                 Uniting Communities for Wildlife Conservation and Sustainability
               </h2>
-              {aboutEcowiild.map((data, index) => (
+              {aboutEcowild.map((data, index) => (
                 <div key={index} className='my-9'>
                   <div className='flex space-x-5'>
                     <img
+                      loading='lazy'
                       src='/calendar-yellow.svg'
                       alt='A yellow calendar icon'
                       className='w-12 h-12'
@@ -129,18 +134,17 @@ const Home = () => {
             </div>
           </div>{' '}
           <div className='md:flex justify-end mt-12 ml-16 w-8/12'>
-            <Button
-              type='button'
-              bg='green'
-              onClick={() => navigate('./about-us')}
-            >
-              Read More
+            <Button type='button' bg='green'>
+              <Link to='./about-us'>Read More</Link>
             </Button>
           </div>
         </section>
         <section>
           <div className='container mx-auto max-w-6xl flex flex-col items-center text-center  text-tertiary-600'>
-            <span className='block w-20 h-[3px] bg-secondary-100 mb-3'></span>
+            <span
+              className='block w-20 h-[3px] bg-secondary-100 mb-3'
+              aria-label='A yellow line'
+            ></span>
             <h3 className='font-bold text-[32px] md:w-3/6'>
               Exploring Rwanda's Rich Animal Diversity
             </h3>
@@ -163,6 +167,7 @@ const Home = () => {
                 className='flex-1 my-3 origin-top sm:hover:scale-y-[1.04] transition-transform duration-150 ease-in'
               >
                 <img
+                  loading='lazy'
                   src={animal}
                   alt={animal.split('.')[0].slice(1)}
                   className='w-full h-auto '
@@ -173,6 +178,7 @@ const Home = () => {
         </section>
         <section className='sticky top-0 z-0 mt-10 h-screen'>
           <img
+            loading='lazy'
             src='/safari-2.jpg'
             alt='People at the safari looking at the elephants'
             className='w-full h-screen'
@@ -192,23 +198,23 @@ const Home = () => {
             conservation efforts and provides hope for a more sustainable
             future.
           </p>
-          <Button
-            type='button'
-            bg='green'
-            onClick={() => navigate('/donations')}
-          >
-            Donate Here!
+          <Button type='button' bg='green'>
+            <Link to='./donations'>Donate Here!</Link>
           </Button>
         </section>
         <section className='py-14 relative z-10 bg-white'>
           <div className='px-10'>
-            <span className='block w-20 h-[3px] bg-secondary-100 mb-3'></span>
+            <span
+              className='block w-20 h-[3px] bg-secondary-100 mb-3'
+              aria-label='A yellow line'
+            ></span>
             <h3 className='pt-2 pb-4 font-bold text-[32px]'>DESTINATIONS</h3>
           </div>
           <div className='grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))]'>
             {destinations.map((destination, index) => (
               <div key={index} className='flex-1'>
                 <img
+                  loading='lazy'
                   src={destination}
                   alt={destination.split('.')[0].slice(1)}
                   className='w-full h-full object-cover'
@@ -217,7 +223,7 @@ const Home = () => {
             ))}
           </div>
         </section>
-        <LastestNews />
+        <LatestNews button={true} />
         <Reachout bgColor='#228B22' buttonBorder={true} />
         <UpcomingEvents />
         <EcowildCount />

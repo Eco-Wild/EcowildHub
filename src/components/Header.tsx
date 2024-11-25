@@ -24,7 +24,7 @@ const navItems = [
     name: 'Publish',
     href: '',
     dropdown: [
-      { name: 'News Letter', href: '/publish/news-letter' },
+      { name: 'News', href: '/publish/news' },
       { name: 'Blogs', href: '/publish/blogs' },
     ],
     id: crypto.randomUUID(),
@@ -48,8 +48,9 @@ export const Header = () => {
         <div className='flex h-24 bg-white items-center justify-between space-x-3 py-3'>
           <a href='/'>
             <img
-              className='h-[64px] w-20 -ml-3'
+              loading='lazy'
               src='/logo.svg'
+              className='h-[64px] w-20 -ml-3'
               alt='ecowildhub logo'
             />
           </a>
@@ -79,31 +80,35 @@ export const Header = () => {
             />
           </button>
 
-          <ul className='hidden items-center space-x-12 lg:flex'>
+          <ul className='hidden items-center space-x-11 lg:flex'>
             {navItems.map((item) => {
               const isActive = item.href === location.pathname;
               return (
-                <li
-                  key={item.id}
-                  className='relative'
-                  onClick={() => handleMenuClick(item.id)}
-                >
-                  <Link
-                    className={clsx(
-                      '',
-                      isActive && 'border-b-2 border-primary-400 p-2 pt-0'
-                    )}
-                    to={item.href}
-                  >
-                    {item.name}
-                  </Link>
-                  {item.dropdown && (
-                    <button type='button'>
-                      <Icon
-                        icon='material-symbols-light:keyboard-arrow-down-rounded'
-                        className='inline-block ml-1 w-6 h-6'
-                      />
-                    </button>
+                <li key={item.id} className='relative'>
+                  {item.dropdown ? (
+                    <>
+                      {item.name}
+                      <button
+                        type='button'
+                        onClick={() => handleMenuClick(item.id)}
+                      >
+                        <Icon
+                          icon='material-symbols-light:keyboard-arrow-down-rounded'
+                          className='inline-flex items-center ml-1 w-6 h-6'
+                        />
+                        <span className='sr-only'>Dropdown button</span>
+                      </button>
+                    </>
+                  ) : (
+                    <Link
+                      className={clsx(
+                        '',
+                        isActive && 'border-b-2 border-primary-400 p-2 pt-0'
+                      )}
+                      to={item.href}
+                    >
+                      {item.name}
+                    </Link>
                   )}
                   {item.dropdown && item.id === activeDropdown && (
                     <Dropdown
@@ -119,7 +124,7 @@ export const Header = () => {
           <div className='lg:flex space-x-4 hidden'>
             {' '}
             <Button type='button' bg='white' onClick={() => setIsOpen(false)}>
-              <Link to='/contact-us'>Contact Us</Link>
+              <Link to='/contact'>Contact Us</Link>
             </Button>
             <Button type='button' bg='green' onClick={() => setIsOpen(false)}>
               <Link to='/donate'>Donate</Link>
@@ -150,15 +155,15 @@ export const Header = () => {
                     to={item.href}
                   >
                     {item.name}
-                  </Link>
-                  {item.dropdown && (
-                    <button type='button'>
+
+                    {item.dropdown && (
                       <Icon
                         icon='material-symbols-light:keyboard-arrow-down-rounded'
-                        className='w-6 h-6'
+                        className='inline-flex items-center ml-1 w-6 h-6'
                       />
-                    </button>
-                  )}
+                    )}
+                  </Link>
+
                   {item.dropdown && item.id === activeDropdown && (
                     <Dropdown
                       item={item}
@@ -176,7 +181,7 @@ export const Header = () => {
             className='block my-5'
             onClick={() => setIsOpen(false)}
           >
-            <Link to='/contact-us'>Contact Us</Link>
+            <Link to='/contact'>Contact Us</Link>
           </Button>
           <Button
             type='button'

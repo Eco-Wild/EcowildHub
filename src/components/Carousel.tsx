@@ -1,80 +1,108 @@
+import { Icon } from '@iconify/react/dist/iconify.js';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Link } from 'react-router-dom';
-import Button from './Button';
 
-const carouselData = [
-  {
-    image: '/canopy-walk.jpg',
-    text: 'A GLOBAL COMMUNITY COMMITED TO WILDLIFE CONSERVATION',
-    alt: 'Canopy walk',
-  },
-  {
-    image: '/wild-life.jpg',
-    text: 'PROTECTING NATURE-ONE STORY AT A TIME',
-    alt: 'Kangaroos in the jungle',
-  },
-  {
-    image: '/safari.jpg',
-    text: "JOIN US IN SAFEDUARDING NATURE'S BEAUTY TODAY",
-    alt: 'Safari',
-  },
-];
+interface Props {
+  animals: string[];
+}
 
-const Carousel = () => {
+function Carousel({ animals }: Props) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function PrevArrow(props: any) {
+    const { className, style, onClick } = props;
+    return (
+      <Icon
+        icon='grommet-icons:form-previous'
+        className={className}
+        style={{
+          ...style,
+          display: 'block',
+          width: '32px',
+          height: '32px',
+          //   marginLeft: '-11px',
+          color: '005DAC',
+          border: '2px solid #005DAC',
+          borderRadius: '8px',
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function NextArrow(props: any) {
+    const { className, style, onClick } = props;
+    return (
+      <Icon
+        icon='grommet-icons:form-next'
+        className={className}
+        style={{
+          ...style,
+          display: 'block',
+          width: '32px',
+          height: '32px',
+          //   marginRight: '-11px',
+          color: '005DAC',
+          border: '2px solid #005DAC',
+          borderRadius: '8px',
+        }}
+        onClick={onClick}
+      />
+    );
+  }
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    pauseOnHover: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
-    <div className='slider-container overflow-x-hidden'>
+    <div className='slider-container'>
       <Slider {...settings}>
-        {carouselData.map((data, index) => (
-          <div className='relative -bottom-2' key={index}>
+        {animals.map((animal, index) => (
+          <div key={index} className='p-4'>
             <img
-              src={data.image}
-              alt={data.alt}
-              className='w-full h-screen object-cover'
+              loading='lazy'
+              src={animal}
+              alt=''
+              className='w-[1472px] h-[284px] rounded-lg'
             />
-            <div className='container mx-auto max-w-[1728px] absolute top-0 h-full'>
-              <div className='flex flex-col justify-center h-full'>
-                <p className='text-secondary-100 text-lg font-bold'>
-                  Explore Our Destinations
-                </p>
-                <h1 className='text-white md:text-[50px] text-[32px] mt-4 mb-6 md:w-[757px] font-extrabold font-REM leading-tight break-words'>
-                  {data.text}
-                </h1>
-                <div className='xs:flex gap-6'>
-                  <Button
-                    type='button'
-                    bg='green'
-                    className='mb-3 xs:mb-0 block'
-                  >
-                    <Link to='/destinations'>Explore More</Link>
-                  </Button>
-                  <Button
-                    type='button'
-                    bg='white'
-                    className='border-none block'
-                  >
-                    <Link to='/donate' className='text-black '>
-                      Donate Now!
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
           </div>
         ))}
       </Slider>
     </div>
   );
-};
+}
 
 export default Carousel;

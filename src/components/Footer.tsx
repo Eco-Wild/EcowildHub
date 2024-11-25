@@ -5,9 +5,14 @@ const Footer = () => {
   return (
     <section className='relative z-10 bg-primary-400 py-14'>
       <div className='container mx-auto max-w-[1728px]'>
-        <div className='flex justify-between flex-wrap  text-white'>
-          <div className='flex flex-col items-center lg:w-2/12 -ml-2'>
-            <img src='/logo-gray.svg' alt='EcowildHub logo' className='mb-2' />
+        <div className='flex justify-between gap-3 flex-wrap  text-white'>
+          <div className='flex flex-col items-center lg:w-2/12 lg:-ml-12'>
+            <img
+              loading='lazy'
+              src='/logo-gray.svg'
+              alt='EcowildHub logo'
+              className='mb-2'
+            />
             <span className='font-REM text-sm'>Copyright © 2024</span>
           </div>
           <ul className='lg:w-2/12 text-sm'>
@@ -89,7 +94,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className='flex flex-wrap justify-center gap-6 text-white mt-9 opacity-90 lg:w-7/12'>
+        <div className='flex flex-wrap justify-center gap-6 text-white mt-9 lg:-ml-6 opacity-90 lg:w-7/12'>
           <Link
             to=''
             className='flex justify-center items-center w-[60px] h-[60px] rounded-full bg-white bg-opacity-15'

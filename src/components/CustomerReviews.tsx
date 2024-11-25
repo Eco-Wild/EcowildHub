@@ -25,7 +25,10 @@ const CustomerReviews = () => {
   return (
     <section className='py-16 bg-cream-100'>
       <div className='flex flex-col items-center container mx-auto max-w-6xl text-tertiary-600 text-center'>
-        <span className='block w-20 h-[3px] bg-secondary-100 mb-3'></span>
+        <span
+          className='block w-20 h-[3px] bg-secondary-100 mb-3'
+          aria-label='A yellow line'
+        ></span>
         <h3 className='font-bold font-REM text-[32px] mb-5 max-w-sm'>
           WHAT ARE THEY SAYING?
         </h3>
@@ -35,7 +38,12 @@ const CustomerReviews = () => {
               key={review.id}
               className='flex flex-col items-center  bg-white p-8 mb-8 sm:mb-0'
             >
-              <img src='/customer-avatar.svg' alt='An avatar' className='' />
+              <img
+                loading='lazy'
+                src='/customer-avatar.svg'
+                alt='An avatar'
+                className=''
+              />
               <p className='py-5 opacity-60'>{review.text}</p>
               <h6 className='font-extrabold py-2'>{review.name}</h6>
               <span className=''>Customer</span>

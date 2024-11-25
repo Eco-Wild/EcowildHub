@@ -50,6 +50,7 @@ const Team = () => {
         {team.map((member, index) => (
           <div key={index} className='hover:shadow-sm mb-8 md:mb-0'>
             <img
+              loading='lazy'
               src={member.image}
               alt={member.name}
               className='w-full h-auto object-cover'

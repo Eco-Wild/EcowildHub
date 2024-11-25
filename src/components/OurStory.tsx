@@ -34,6 +34,7 @@ const OurStory = () => {
       <div className='lg:flex'>
         <div className='lg:w-5/12'>
           <img
+            loading='lazy'
             src='/zebras2.jpg'
             alt='Zebras in the field'
             className='w-full h-full'
@@ -44,11 +45,18 @@ const OurStory = () => {
           style={{ backgroundColor: stories[selectedStory].bgColor }}
         >
           <div className='flex flex-col justify-center items-center text-center'>
-            <span className='block w-20 h-[3px] bg-secondary-100 mb-3'></span>
+            <span
+              className='block w-20 h-[3px] bg-secondary-100 mb-3'
+              aria-label='A yellow line'
+            ></span>
             <h4 className='font-bold text-[32px] pb-16'>OUR STORY</h4>
             <div>
               <p className='flex items-start gap-5 text-left'>
-                <img src='/calendar-yellow.svg' alt='A yellow calendar icon' />
+                <img
+                  loading='lazy'
+                  src='/calendar-yellow.svg'
+                  alt='A yellow calendar icon'
+                />
                 {stories[selectedStory].text}
               </p>
               <h5 className='mt-7 mb-12'>
@@ -56,7 +64,7 @@ const OurStory = () => {
               </h5>
             </div>
           </div>
-          <div className='self-center flex flex-row sm:flex-col sm:justify-center justify-around sm:space-y-12 sm:border-l sm:border-t-0 border-t sm:h-[652px] w-full'>
+          <div className='self-stretch flex flex-row sm:flex-col sm:justify-center justify-around sm:space-y-12 sm:border-l sm:border-t-0 border-t'>
             {numbers.map((number, index) => (
               <span
                 key={index}
