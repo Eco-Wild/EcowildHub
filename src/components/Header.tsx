@@ -84,27 +84,31 @@ export const Header = () => {
             {navItems.map((item) => {
               const isActive = item.href === location.pathname;
               return (
-                <li
-                  key={item.id}
-                  className='relative'
-                  onClick={() => handleMenuClick(item.id)}
-                >
-                  <Link
-                    className={clsx(
-                      '',
-                      isActive && 'border-b-2 border-primary-400 p-2 pt-0'
-                    )}
-                    to={item.href}
-                  >
-                    {item.name}
-                  </Link>
-                  {item.dropdown && (
-                    <button type='button'>
-                      <Icon
-                        icon='material-symbols-light:keyboard-arrow-down-rounded'
-                        className='inline-block ml-1 w-6 h-6'
-                      />
-                    </button>
+                <li key={item.id} className='relative'>
+                  {item.dropdown ? (
+                    <>
+                      {item.name}
+                      <button
+                        type='button'
+                        onClick={() => handleMenuClick(item.id)}
+                      >
+                        <Icon
+                          icon='material-symbols-light:keyboard-arrow-down-rounded'
+                          className='inline-flex items-center ml-1 w-6 h-6'
+                        />
+                        <span className='sr-only'>Dropdown button</span>
+                      </button>
+                    </>
+                  ) : (
+                    <Link
+                      className={clsx(
+                        '',
+                        isActive && 'border-b-2 border-primary-400 p-2 pt-0'
+                      )}
+                      to={item.href}
+                    >
+                      {item.name}
+                    </Link>
                   )}
                   {item.dropdown && item.id === activeDropdown && (
                     <Dropdown
@@ -151,15 +155,15 @@ export const Header = () => {
                     to={item.href}
                   >
                     {item.name}
-                  </Link>
-                  {item.dropdown && (
-                    <button type='button'>
+
+                    {item.dropdown && (
                       <Icon
                         icon='material-symbols-light:keyboard-arrow-down-rounded'
-                        className='w-6 h-6'
+                        className='inline-flex items-center ml-1 w-6 h-6'
                       />
-                    </button>
-                  )}
+                    )}
+                  </Link>
+
                   {item.dropdown && item.id === activeDropdown && (
                     <Dropdown
                       item={item}

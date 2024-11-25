@@ -52,7 +52,9 @@ const News = () => {
                 <p className='opacity-50'>{item.text}</p>
                 <div className='mt-6'>
                   <Button type='button' bg='green'>
-                    <Link to={`/news/${item.id}/news-details`}>Read More</Link>
+                    <Link to={`/publish/news/${item.id}/news-details`}>
+                      Read More
+                    </Link>
                   </Button>
                   <span className='inline-block ml-20 opacity-50'>
                     {item.date}

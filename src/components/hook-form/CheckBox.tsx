@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import {
   FieldError,
   FieldErrorsImpl,
@@ -14,26 +14,34 @@ interface Props {
   label?: string;
   id?: string;
   label2?: string;
+  value?: boolean;
   hasError: Merge<FieldError, FieldErrorsImpl<object>> | undefined;
   errorMessage: string | undefined;
   registration: Partial<UseFormRegisterReturn>;
+  setShowTerms?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const CheckBox: FC<Props> = ({
   name,
   label,
   label2,
+  value = false,
   id,
   hasError,
   errorMessage,
   registration,
+  setShowTerms,
 }) => {
+  const handleCheckBox = (
+    e: React.MouseEvent<HTMLLabelElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    if (setShowTerms) setShowTerms(true);
+  };
   // const { field, fieldState } = useController({
   //   name,
   //   control,
   // });
-
-  const [agreed, setAgreed] = useState(false);
 
   //   useEffect(() => {
   //     if (fieldState.error && fieldState.error.ref?.name === 'acceptTerms') {
@@ -57,24 +65,27 @@ const CheckBox: FC<Props> = ({
   return (
     <div className='mt-4 mb-5'>
       {label && (
-        <label htmlFor={id} className='flex gap-2 cursor-pointer'>
+        <label
+          htmlFor={id}
+          className='flex gap-2 cursor-pointer'
+          onClick={(e) => handleCheckBox(e)}
+        >
           <span
-            className={`block h-5 w-5 rounded-full border-[3px] border-primary-400  ${
-              agreed ? 'bg-primary-400' : ''
+            className={`flex justify-center h-5 w-5 rounded-full border-[3px] border-primary-400  ${
+              value ? 'bg-primary-400' : ''
             }`}
           >
             <Icon
               icon='fluent:checkmark-12-filled'
-              className=' font-bold text-white'
+              className='font-bold text-white'
             />
           </span>
           <input
             name={name}
             id={id}
-            checked={agreed}
+            checked={value}
             type='checkbox'
-            onChange={(e) => setAgreed(e.target.checked)}
-            className=' cursor-pointer sr-only'
+            className='sr-only'
             {...registration}
           />
           {label} <span className='font-bold'>{label2}</span>

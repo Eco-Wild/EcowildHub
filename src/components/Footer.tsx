@@ -94,7 +94,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className='flex flex-wrap justify-center gap-6 text-white mt-9 opacity-90 lg:w-7/12'>
+        <div className='flex flex-wrap justify-center gap-6 text-white mt-9 lg:-ml-6 opacity-90 lg:w-7/12'>
           <Link
             to=''
             className='flex justify-center items-center w-[60px] h-[60px] rounded-full bg-white bg-opacity-15'

@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Carousel from '../../components/HeroCarousel';
 import Button from '../../components/Button';
-import LastestNews from '../../components/LastestNews';
+import LatestNews from '../../components/LatestNews';
 import UpcomingEvents from '../../components/UpcomingEvents';
 import EcowildCount from '../../components/CountUp';
 import LatestBlogs from '../../components/LatestBlogs';
@@ -12,30 +12,38 @@ import Reachout from '../../components/Reachout';
 const offers = [
   {
     heading: 'NEW EVENTS',
-    text: 'Wildlife conservation events focus on raising awareness, promoting action, and supporting initiatives to protect endangered species and habitats.',
+    text: 'Wildlife conservation events focus on raising awareness, promoting action, and\
+     supporting initiatives to protect endangered species and habitats.',
   },
   {
     heading: 'NEW BLOGS',
-    text: 'Wildlife conservation blogs provide updates on efforts to protect endangered species and ecosystems, share success stories, and explore emerging challenges.',
+    text: 'Wildlife conservation blogs provide updates on efforts to protect endangered species and\
+    ecosystems, share success stories, and explore emerging challenges.',
   },
   {
     heading: 'DESTINATIONS',
-    text: 'Wildlife conservation destinations are natural areas like national parks, reserves, and sanctuaries where visitors can experience nature while supporting conservation efforts. ',
+    text: 'Wildlife conservation destinations are natural areas like national parks, reserves, and\
+    sanctuaries where visitors can experience nature while supporting conservation efforts. ',
   },
 ];
 
 const aboutEcowild = [
   {
     heading: 'ABOUT US',
-    text: 'EcoWildHub is a Rwanda-based platform dedicated to wildlife conservation and environmental sustainability. It engages communities and eco-conscious individuals through educational content and interactive initiatives, raising awareness and encouraging action to protect biodiversity.',
+    text: 'EcoWildHub is a Rwanda-based platform dedicated to wildlife conservation and environmental sustainability.\
+     It engages communities and eco-conscious individuals through educational content and interactive initiatives, raising\
+      awareness and encouraging action to protect biodiversity.',
   },
   {
     heading: 'OUR MISSION',
-    text: 'To promote wildlife conservation by providing engaging content and interactive experiences, including blogs, news, and events, while empowering communities to learn, participate, and contribute to conservation efforts.',
+    text: 'To promote wildlife conservation by providing engaging content and interactive experiences, including blogs, news,\
+     and events, while empowering communities to learn, participate, and contribute to conservation efforts.',
   },
   {
     heading: 'OUR VISION',
-    text: 'To create a world where people and nature coexist in harmony, driven by community empowerment, innovative conservation solutions, and a global commitment to protecting biodiversity and combating climate change—ensuring that everyone, including communities and ecosystems, benefits from a sustainable and thriving environment.',
+    text: 'To create a world where people and nature coexist in harmony, driven by community empowerment, innovative conservation\
+     solutions, and a global commitment to protecting biodiversity and combating climate change—ensuring that everyone, including\
+      communities and ecosystems, benefits from a sustainable and thriving environment.',
   },
 ];
 
@@ -54,7 +62,6 @@ const destinations = [
 ];
 
 const Home = () => {
-  const navigate = useNavigate();
   const showScrollButton = useScrollToTop();
 
   return (
@@ -127,12 +134,8 @@ const Home = () => {
             </div>
           </div>{' '}
           <div className='md:flex justify-end mt-12 ml-16 w-8/12'>
-            <Button
-              type='button'
-              bg='green'
-              onClick={() => navigate('./about-us')}
-            >
-              Read More
+            <Button type='button' bg='green'>
+              <Link to='./about-us'>Read More</Link>
             </Button>
           </div>
         </section>
@@ -195,12 +198,8 @@ const Home = () => {
             conservation efforts and provides hope for a more sustainable
             future.
           </p>
-          <Button
-            type='button'
-            bg='green'
-            onClick={() => navigate('/donations')}
-          >
-            Donate Here!
+          <Button type='button' bg='green'>
+            <Link to='./donations'>Donate Here!</Link>
           </Button>
         </section>
         <section className='py-14 relative z-10 bg-white'>
@@ -224,7 +223,7 @@ const Home = () => {
             ))}
           </div>
         </section>
-        <LastestNews />
+        <LatestNews button={true} />
         <Reachout bgColor='#228B22' buttonBorder={true} />
         <UpcomingEvents />
         <EcowildCount />

@@ -25,8 +25,8 @@ export const Button = ({
       className={clsx(
         'h-[54px] font-semibold text-sm px-11 rounded-md',
         bg === 'white'
-          ? 'bg-white border-2 border-primary-400 text-primary-400'
-          : 'bg-primary-400 text-white',
+          ? 'bg-white border-2 border-primary-400 text-primary-400 hover:bg-green-50'
+          : 'bg-primary-400 text-white hover:opacity-85',
         className
       )}
       onClick={onClick}
