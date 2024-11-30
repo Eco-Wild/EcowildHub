@@ -112,8 +112,12 @@ export const InputField = ({
               onClick={() => handleTogglePassword && handleTogglePassword()}
               className='cursor-pointer'
             >
-              <span className='p-1 absolute inset-y-4 left-3'>{iconStart}</span>
-              <span className='p-1 absolute inset-y-4 right-3'>{iconEnd}</span>
+              <span className='p-1 flex items-center absolute inset-y-3 left-3'>
+                {iconStart}
+              </span>
+              <span className='p-1 flex items-center absolute inset-y-4 right-3'>
+                {iconEnd}
+              </span>
             </span>
           )}
         </div>

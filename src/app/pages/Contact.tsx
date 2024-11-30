@@ -66,7 +66,7 @@ const Contact = () => {
     setShowTerms(false);
   };
 
-  const onSubmit: SubmitHandler<ContactValues> = (data: ContactValues, e) => {
+  const onSubmit: SubmitHandler<ContactValues> = (_data: ContactValues, e) => {
     e?.preventDefault();
 
     return new Promise<void>((resolve) => {
