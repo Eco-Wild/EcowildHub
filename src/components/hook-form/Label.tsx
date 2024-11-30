@@ -9,10 +9,7 @@ type LabelProps = React.LabelHTMLAttributes<HTMLLabelElement> & {
 export const Label = ({ className, isRequired, ...props }: LabelProps) => {
   return (
     <label
-      className={clsx(
-        'pb-1 pt-5 flex space-x-1 text-sm font-semibold',
-        className
-      )}
+      className={clsx('pb-1 pt-5 flex space-x-1 text-sm font-bold', className)}
       {...props}
     >
       <span>{props.children}</span>

@@ -37,7 +37,7 @@ const Blog = ({ bgColor, numToShow = 3 }: Props) => {
             </h5>
             <button
               type='button'
-              className='absolute -bottom-7 bg-cream-200 border-[6px] border-white w-14 h-14 rounded-full'
+              className='absolute -bottom-7 bg-cream-200 border-[6px] border-white w-14 h-14 rounded-full hover:bg-opacity-85'
             >
               <Link to={`/publish/blogs/${data.id}/blog-details`}>
                 {' '}

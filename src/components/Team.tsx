@@ -7,18 +7,18 @@ const team = [
   {
     name: 'Nkechi Udenkwor',
     image: '/Nkechi.jpg',
-    role: 'Front-end',
+    role: 'Front-end developer',
   },
   {
     name: 'Anna Matsane',
     image: '/Anna.jpg',
     role: 'Graphic Designer',
   },
-  {
-    name: 'Kingsley Iwuchukwu',
-    image: '/Kingsley.jpg',
-    role: 'Froent-end Developer',
-  },
+  // {
+  //   name: 'Kingsley Iwuchukwu',
+  //   image: '/Kingsley.jpg',
+  //   role: 'Front-end Developer',
+  // },
   {
     name: 'Romha Keneni',
     image: '/Romha.jpg',
@@ -48,7 +48,10 @@ const Team = () => {
       </div>
       <div className='sm:grid grid-cols-[repeat(auto-fit,minmax(313px,1fr))] gap-6'>
         {team.map((member, index) => (
-          <div key={index} className='hover:shadow-sm mb-8 md:mb-0'>
+          <div
+            key={index}
+            className='hover:shadow-md shadow-gray-300 mb-8 md:mb-0 transition-all duration-500 ease-in-out'
+          >
             <img
               loading='lazy'
               src={member.image}
