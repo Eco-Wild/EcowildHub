@@ -7,18 +7,18 @@ const team = [
   {
     name: 'Nkechi Udenkwor',
     image: '/Nkechi.jpg',
-    role: 'Front-end developer',
+    role: 'Front-end Developer',
   },
   {
     name: 'Anna Matsane',
     image: '/Anna.jpg',
     role: 'Graphic Designer',
   },
-  // {
-  //   name: 'Kingsley Iwuchukwu',
-  //   image: '/Kingsley.jpg',
-  //   role: 'Front-end Developer',
-  // },
+  {
+    name: 'Kingsley Iwuchukwu',
+    image: '/Kingsley.jpg',
+    role: 'Front-end Developer',
+  },
   {
     name: 'Romha Keneni',
     image: '/Romha.jpg',

@@ -22,6 +22,7 @@ import EventDetails from './app/pages/EventDetails';
 import Signin from './app/Dashboard/pages/auth/Signin';
 import DashboardLayout from './app/Dashboard/components/DashboardLayout';
 import Overview from './app/Dashboard/pages/Overview';
+import ForgotPassword from './app/Dashboard/components/ForgotPassword';
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
 
         {/* Routes without any layout */}
         <Route path='/dashboard/signin' element={<Signin />} />
+        <Route path='/dashboard/forgot-password' element={<ForgotPassword />} />
       </Routes>
     </Router>
   );
