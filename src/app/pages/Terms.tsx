@@ -8,7 +8,7 @@ interface Props {
 const Terms = ({ setShowTerms, handleAgreement }: Props) => {
   return (
     <Modal>
-      <section className='p-6 overflow-y-scroll bg-white'>
+      <section className='container max-w-[708px] max-h-[420px] p-6 bg-white'>
         <h2 className='font-bold text-primary-400 my-4'>
           Terms and Conditions
         </h2>

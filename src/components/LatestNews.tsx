@@ -32,7 +32,10 @@ const LatestNews = ({
         </p>
         <div className='md:grid grid-cols-[repeat(auto-fit,minmax(330px,1fr))] gap-7'>
           {events.map((data) => (
-            <div className='mb-5 md:mb-0' key={data.id}>
+            <div
+              className='mb-5 md:mb-0 hover:drop-shadow-lg transition-all duration-300 ease-in'
+              key={data.id}
+            >
               <Link to={`${data.id}/event-details`}>
                 <img
                   loading='lazy'

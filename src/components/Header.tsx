@@ -43,7 +43,7 @@ export const Header = () => {
   };
 
   return (
-    <header className='container mx-auto max-w-[1728px] '>
+    <header className='container mx-auto max-w-[1728px]'>
       <nav>
         <div className='flex h-24 bg-white items-center justify-between space-x-3 py-3'>
           <a href='/'>
@@ -80,11 +80,14 @@ export const Header = () => {
             />
           </button>
 
-          <ul className='hidden items-center space-x-11 lg:flex'>
+          <ul className='hidden items-center space-x-12 lg:flex'>
             {navItems.map((item) => {
               const isActive = item.href === location.pathname;
               return (
-                <li key={item.id} className='relative'>
+                <li
+                  key={item.id}
+                  className='relative text-[15px] font-medium text-nowrap hover:text-primary-400'
+                >
                   {item.dropdown ? (
                     <>
                       {item.name}
@@ -141,7 +144,7 @@ export const Header = () => {
               return (
                 <li
                   key={item.id}
-                  className='relative'
+                  className='relative text-[15px] font-medium  hover:text-primary-400'
                   onClick={() => {
                     setIsOpen(false);
                     handleMenuClick(item.id);

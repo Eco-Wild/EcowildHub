@@ -11,3 +11,32 @@ export interface ContactValues {
   message: string;
   acceptTerms?: boolean;
 }
+
+export interface SigninValues {
+  userName: string;
+  password: string;
+}
+
+export interface ImageValues {
+  lastModified: number;
+  name: string;
+  size: number;
+  type: string;
+  webkitRelativePath: string;
+}
+
+export interface FormValues {
+  title: string;
+  date: Date;
+  author: string;
+  description: string;
+  images: ImageValues[];
+}
+
+export interface Post {
+  title: string;
+  text: string;
+  author: string;
+  date: string;
+  thumbnail: string;
+}

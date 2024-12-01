@@ -56,7 +56,7 @@ const UpcomingEvents = () => {
                     loading='lazy'
                     src='/calendar-green.svg'
                     alt='A green calendar icon'
-                    className='inline-block align-top'
+                    className='inline-block align-top mr-1'
                   />
                   <span>{data.date}</span>
                   <h6 className='text-xl font-bold my-2'>{data.heading}</h6>
