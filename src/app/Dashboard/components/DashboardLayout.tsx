@@ -8,9 +8,9 @@ const DashboardLayout = () => {
   return (
     <section className='flex h-screen'>
       <SideNavBar isOpen={isOpen} setIsOpen={setIsOpen} />
-      <div className='grow md:ml-[240px] min-h-full'>
+      <div className='grow md:ml-[240px]'>
         <TopNavBar setIsOpen={setIsOpen} />
-        <main>
+        <main className='bg-[#D3D3D5] min-h-full'>
           <Outlet />
         </main>
       </div>

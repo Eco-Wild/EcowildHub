@@ -13,7 +13,7 @@ interface Props {
 export const Button = ({
   children,
   type,
-  className = 'font-semibold',
+  className = 'font-semibold h-[54px]',
   bg,
   disabled,
   onClick,
@@ -23,7 +23,7 @@ export const Button = ({
       type={type}
       disabled={disabled}
       className={clsx(
-        'h-[54px]  text-sm px-10 rounded-md text-nowrap',
+        'text-sm px-10 rounded-md text-nowrap',
         bg === 'white'
           ? 'bg-white border-2 border-primary-400 text-primary-400 hover:bg-green-50'
           : 'bg-primary-400 text-white hover:opacity-85',

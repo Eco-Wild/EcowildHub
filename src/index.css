@@ -30,6 +30,7 @@ body {
   background-clip: padding-box;
 }
 
+/* Hide scroll bar */
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
@@ -40,4 +41,47 @@ body {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* list-style: none; */
+}
+
+.page,
+.prev,
+.next,
+.break {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 12px;
+  color: #333;
+  border: 1px solid #a3a7ab;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page:hover,
+.prev:hover,
+.next:hover {
+  background-color: #f0f0f0;
+}
+
+.active {
+  color: #228b22;
+  border: 2px solid #228b22;
+}
+
+.disabled {
+  background-color: #e0e0e0;
+  color: #a0a0a0;
+  opacity: 50%;
+  pointer-events: none;
 }

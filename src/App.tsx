@@ -22,7 +22,11 @@ import EventDetails from './app/pages/EventDetails';
 import Signin from './app/Dashboard/pages/auth/Signin';
 import DashboardLayout from './app/Dashboard/components/DashboardLayout';
 import Overview from './app/Dashboard/pages/Overview';
-import ForgotPassword from './app/Dashboard/components/ForgotPassword';
+import ForgotPassword from './app/Dashboard/pages/auth/ForgotPassword';
+import CheckEmail from './app/Dashboard/pages/auth/CheckEmail';
+import ResetPassword from './app/Dashboard/pages/auth/ResetPassword';
+import ResetSuccess from './app/Dashboard/pages/auth/ResetSuccess';
+import Publish from './app/Dashboard/pages/Publish';
 
 function App() {
   return (
@@ -57,11 +61,15 @@ function App() {
         {/* Dashboard Routes */}
         <Route element={<DashboardLayout />}>
           <Route path='/dashboard/overview' element={<Overview />} />
+          <Route path='/dashboard/publish' element={<Publish />} />
         </Route>
 
         {/* Routes without any layout */}
         <Route path='/dashboard/signin' element={<Signin />} />
         <Route path='/dashboard/forgot-password' element={<ForgotPassword />} />
+        <Route path='/dashboard/check-email' element={<CheckEmail />} />
+        <Route path='/dashboard/reset-password' element={<ResetPassword />} />
+        <Route path='/dashboard/reset-success' element={<ResetSuccess />} />
       </Routes>
     </Router>
   );

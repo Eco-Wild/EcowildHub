@@ -67,8 +67,8 @@ const SideNavBar = ({ isOpen, setIsOpen }: Props) => {
       {/* Mobile screen */}
       <section
         className={clsx(
-          'fixed top-0 left-0 right-0 z-20 bg-black bg-opacity-50 h-screen',
-          isOpen ? 'block' : 'hidden'
+          'fixed top-0 left-0 right-0 z-20 bg-black bg-opacity-50 h-screen transition-opacity',
+          isOpen ? 'block opacity-100' : 'hidden opacity-0'
         )}
         aria-modal='true'
         aria-hidden={!isOpen}
@@ -82,7 +82,10 @@ const SideNavBar = ({ isOpen, setIsOpen }: Props) => {
         {/* Modal Content */}
         <div
           ref={modalRef} // Ref applied here to only monitor modal content
-          className='relative z-30 w-[230px] h-full font-Montserrat bg-tertiary-600 p-5 pt-1 text-white'
+          className={clsx(
+            'relative z-30 w-[230px] h-full font-Montserrat bg-tertiary-600 p-5 pt-1 text-white transform transition-transform duration-500',
+            isOpen ? 'translate-x-0' : '-translate-x-full'
+          )}
         >
           <div>
             <div className='inline-flex items-center gap-2 border-b border-[#2b3248] py-1 -ml-2'>
