@@ -117,7 +117,7 @@ export const Header = () => {
                     <Dropdown
                       item={item}
                       isActive={isActive}
-                      className='top14'
+                      className='top-14'
                     />
                   )}
                 </li>

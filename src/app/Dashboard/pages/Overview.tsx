@@ -1,13 +1,14 @@
+import { posts } from '../../../utils/DummyData';
 import CountCard from '../components/CountCard';
-import PostsDetailsTable from '../components/PostsDetailsTable';
+import PostsDetailsTable from '../components/PostsTable';
 import UserInteractionChart from '../components/UserInteractionChart';
 
 const Overview = () => {
   return (
-    <section className='bg-[#D3D3D5] p-6'>
+    <section className='p-6'>
       <CountCard />
       <UserInteractionChart />
-      <PostsDetailsTable num={5} />
+      <PostsDetailsTable num={5} posts={posts} />
     </section>
   );
 };

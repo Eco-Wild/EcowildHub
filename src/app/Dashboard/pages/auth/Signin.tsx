@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { SigninValues } from '../../../../utils/types';
 import Button from '../../../../components/Button';
 import BackgroundLayout from '../../components/BackgroundLayout';
+import { Link } from 'react-router-dom';
 
 const ValidationSchema = yup.object({
   userName: yup
@@ -87,6 +88,12 @@ const Signin = () => {
         <Button type='submit' bg='green' className='font-extrabold w-full my-2'>
           {isSubmitting ? 'Signing In...' : 'Sign In'}
         </Button>
+        <Link
+          to='/dashboard/forgot-password'
+          className='block text-right font-sm'
+        >
+          Forgot Password?
+        </Link>
       </form>
     </BackgroundLayout>
   );

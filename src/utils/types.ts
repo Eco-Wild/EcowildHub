@@ -40,3 +40,8 @@ export interface Post {
   date: string;
   thumbnail: string;
 }
+
+export interface PasswordReset {
+  newPassword: string;
+  confirmNewPassword: string;
+}

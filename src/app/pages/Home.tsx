@@ -189,14 +189,12 @@ const Home = () => {
             HELP US SAVE ENDANGERED SPECIES
           </h2>
           <p className='mt-5 mb-7 leading-relaxed'>
-            By donating today, you are directly contributing to the protection
-            of endangered species, restoration of vital ecosystems, and support
-            of local communities that depend on these environments. Your
-            generosity ensures that future generations will inherit a planet
-            rich in biodiversity, where wildlife and humans can thrive together
-            in harmony. Every contribution, no matter the size, fuels critical
-            conservation efforts and provides hope for a more sustainable
-            future.
+            At EcoWildHub, we invite you to help us protect our planet. Your
+            donation supports vital conservation efforts, allowing us to share
+            important stories about our environment and raise awareness for
+            sustainable practices. By contributing, you fuel our mission to
+            educate and inspire action for wildlife conservation. Together, we
+            can create lasting change and join the fight for nature.
           </p>
           <Button type='button' bg='green'>
             <Link to='./donations'>Donate Here!</Link>

@@ -1,12 +1,18 @@
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { range } from '../../../utils/HelperFunctions';
-import { posts } from '../../../utils/DummyData';
+// import { posts } from '../../../utils/DummyData';
 import { Fragment, useState } from 'react';
 import PostDescription from './PostDescription';
+import { Post } from '../../../utils/types';
 
-const PostsDetailsTable = ({ num }: { num: number }) => {
+interface Props {
+  num: number;
+  posts: Post[];
+}
+
+const PostsTable = ({ num, posts }: Props) => {
   const [showDescription, setShowDescription] = useState(false);
-  console.log({ showDescription });
+
   return (
     <section className='overflow-auto text-tertiary-600'>
       {range(num).map((num) => (
@@ -71,4 +77,4 @@ const PostsDetailsTable = ({ num }: { num: number }) => {
   );
 };
 
-export default PostsDetailsTable;
+export default PostsTable;

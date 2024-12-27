@@ -41,7 +41,7 @@ const ValidationSchema = Yup.object({
     .required('Please upload at least one photo'),
 });
 
-const Form = () => {
+const Form = ({ title }: { title: string }) => {
   const {
     control,
     register,
@@ -80,9 +80,11 @@ const Form = () => {
 
   return (
     <section>
+      <h1>{title}</h1>
       <form onSubmit={handleSubmit(onSubmit)} className=''>
         <InputField
           type='text'
+          label='Title'
           control={control}
           registration={{ ...register('title') }}
           hasError={errors.title}
@@ -93,6 +95,7 @@ const Form = () => {
         />
         <InputDateField
           name='date'
+          label='Date'
           placeholder='Select a date'
           control={control as unknown as Control}
           hasError={errors.date}
@@ -101,6 +104,7 @@ const Form = () => {
         />
         <InputField
           type='text'
+          label='Author'
           control={control}
           registration={{ ...register('author') }}
           hasError={errors.author}
@@ -111,6 +115,7 @@ const Form = () => {
         />
         <TextAreaField
           id='description'
+          label='Description'
           placeholder='Type your description'
           registration={{ ...register('description') }}
           errorMessage={errors.description?.message}
