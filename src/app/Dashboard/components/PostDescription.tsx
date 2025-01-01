@@ -1,17 +1,14 @@
 import { useRef } from 'react';
 import Modal from '../../../components/Modal';
 import { Post } from '../../../utils/types';
-import useOnclickOutside from '../../../hooks/useOnclickOutside';
 
 interface Props {
   post: Post;
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  onClose: () => void;
 }
 
-const PostDescription = ({ post, isOpen, setIsOpen }: Props) => {
+const PostDescription = ({ post, onClose }: Props) => {
   const modalRef = useRef(null);
-  useOnclickOutside({ isOpen, setIsOpen, modalRef });
 
   return (
     <Modal
@@ -21,6 +18,7 @@ const PostDescription = ({ post, isOpen, setIsOpen }: Props) => {
         exit: { x: '100%' },
         transition: { duration: 0.2, ease: 'easeOut' },
       }}
+      onClose={onClose}
       className='bg-opacity-20'
     >
       <section

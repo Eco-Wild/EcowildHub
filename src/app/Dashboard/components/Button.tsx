@@ -5,6 +5,7 @@ interface Props {
   type: 'submit' | 'reset' | 'button' | undefined;
   bg?: string;
   className?: string;
+  onClick?: () => void;
 }
 
 const Button = ({
@@ -12,6 +13,7 @@ const Button = ({
   type,
   bg = 'green',
   className = 'font-extrabold',
+  onClick,
 }: Props) => {
   return (
     <button
@@ -23,6 +25,7 @@ const Button = ({
           : 'bg-white border border-primary-400 text-black',
         className
       )}
+      onClick={onClick}
     >
       {children}
     </button>

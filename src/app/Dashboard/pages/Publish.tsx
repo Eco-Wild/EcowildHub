@@ -4,6 +4,7 @@ import PaginatedTable from '../components/PaginatedPostsTable';
 const Publish = () => {
   const tabs = ['News', 'Blogs', 'Events'];
   const [activeTab, setActiveTab] = useState(tabs[0]);
+
   return (
     <PaginatedTable
       tabs={tabs}

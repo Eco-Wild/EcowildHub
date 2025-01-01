@@ -32,7 +32,7 @@ interface InputFieldProps {
   accept?: string;
   getValues?: (payload?: string | string[]) => object;
 
-  handleImagePreview?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleImageChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleTogglePassword?: () => void;
 }
 
@@ -54,11 +54,11 @@ export const InputField = ({
   hide,
   accept,
   //   getValues,
-  //   handleImagePreview,
+  handleImageChange,
   handleTogglePassword,
   isDisabled = false,
 }: InputFieldProps) => {
-  const { name } = registration;
+  const { name, onChange: formOnChange } = registration;
   //   const images = getValues && (getValues('photos') ?? []);
 
   return (
@@ -91,20 +91,9 @@ export const InputField = ({
             max={max}
             multiple
             {...registration}
-            // onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            //   handleImagePreview && handleImagePreview(e);
-            //   onChange &&
-            //     onChange({
-            //       target: {
-            //         name: 'photos',
-            //         value: getValues &&
-            //           e.target.files && [
-            //             ...(images as File[]),
-            //             ...Array.from(e.target.files),
-            //           ],
-            //       },
-            //     });
-            // }}
+            onChange={
+              type === 'file' ? (e) => handleImageChange?.(e) : formOnChange // Use react-hook-form's default onChange for other inputs
+            }
           />
 
           {withIcon && (

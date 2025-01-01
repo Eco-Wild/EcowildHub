@@ -1,13 +1,13 @@
 import Modal from '../../components/Modal';
 
 interface Props {
-  setShowTerms: React.Dispatch<React.SetStateAction<boolean>>;
+  onClose: () => void;
   handleAgreement: () => void;
 }
 
-const Terms = ({ setShowTerms, handleAgreement }: Props) => {
+const Terms = ({ onClose, handleAgreement }: Props) => {
   return (
-    <Modal>
+    <Modal onClose={onClose}>
       <section className='container max-w-[708px] max-h-[420px] p-6 bg-white'>
         <h2 className='font-bold text-primary-400 my-4'>
           Terms and Conditions
@@ -27,7 +27,7 @@ const Terms = ({ setShowTerms, handleAgreement }: Props) => {
           <button
             type='button'
             className='text-primary-400 text-sm hover:opacity-75'
-            onClick={() => setShowTerms(false)}
+            onClick={onClose}
           >
             Cancel
           </button>

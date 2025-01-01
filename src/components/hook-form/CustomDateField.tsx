@@ -1,5 +1,5 @@
 import { Controller, FieldError, UseControllerProps } from 'react-hook-form';
-import DatePicker, { DatePickerProps } from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import React from 'react';
 import clsx from 'clsx';
@@ -7,10 +7,10 @@ import clsx from 'clsx';
 import { ErrorMessage } from './ErrorMessage';
 import { Label } from './Label';
 
-type ReactDatePickPropsWithoutOnChange = Omit<
-  DatePickerProps,
-  'onChange' | 'selectsRange' | 'selectsMultiple'
->;
+// type ReactDatePickPropsWithoutProps = Omit<
+//   DatePickerProps,
+//   'onChange' | 'selectsRange' | 'selectsMultiple'
+// >;
 
 type InputDateFieldProps = {
   name: string;
@@ -21,8 +21,7 @@ type InputDateFieldProps = {
   hasError: FieldError | undefined;
   value?: string;
   isRequired?: boolean;
-} & ReactDatePickPropsWithoutOnChange &
-  UseControllerProps;
+} & UseControllerProps;
 
 export const InputDateField: React.FC<InputDateFieldProps> = ({
   name,
@@ -30,7 +29,6 @@ export const InputDateField: React.FC<InputDateFieldProps> = ({
   hasError,
   className,
   placeholder = 'Select date',
-  dateFormat = 'MMMM d, yyyy',
   isRequired,
   control,
   errorMessage,
@@ -47,30 +45,34 @@ export const InputDateField: React.FC<InputDateFieldProps> = ({
         control={control || undefined}
         name={name}
         render={({ field }) => (
-          <DatePicker
-            className={clsx(
-              'font-WorkSans focus-within:border-secondary h-14 w-full rounded-2xl border border-gray-150 bg-gray-150 px-4 text-gray-950 placeholder-gray-950 outline-none placeholder:text-sm placeholder:text-gray-950 disabled:bg-gray-100',
-              hasError && 'border-red-500',
-              className
-            )}
-            // formatWeekDay={(day) => dayjs(day).format('ddd')}
-            placeholderText={placeholder}
-            closeOnScroll={true}
-            selected={field.value}
-            dateFormat={dateFormat}
-            name={name}
-            onChange={(date: Date[] | null) => field.onChange(date)}
-            showMonthDropdown
-            autoComplete='off'
-            showYearDropdown
-            dropdownMode='select'
-            isClearable
-            ref={(elem) =>
-              elem &&
-              field.ref((elem as unknown as { input: HTMLInputElement }).input)
-            }
-            {...props}
-          />
+          <div className='customDatePickerWidth'>
+            <DatePicker
+              className={clsx(
+                'h-[68px] w-full p-4 bg-tertiary-600 bg-opacity-5 rounded-lg placeholder:text-tertiary-600 opacity-50 placeholder:text-sm outline-none',
+                hasError && 'border-red-500',
+                className
+              )}
+              // formatWeekDay={(day) => dayjs(day).format('ddd')}
+              placeholderText={placeholder}
+              closeOnScroll={true}
+              selected={field.value}
+              dateFormat='MMMM d, yyyy'
+              name={name}
+              onChange={(date) => field.onChange(date)}
+              showMonthDropdown
+              autoComplete='off'
+              showYearDropdown
+              dropdownMode='select'
+              isClearable
+              ref={(elem) =>
+                elem &&
+                field.ref(
+                  (elem as unknown as { input: HTMLInputElement }).input
+                )
+              }
+              {...props}
+            />
+          </div>
         )}
       />
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
