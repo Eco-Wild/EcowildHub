@@ -2,6 +2,7 @@ import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 import * as React from 'react';
 import clsx from 'clsx';
 import { ErrorMessage } from './ErrorMessage';
+import { Label } from './Label';
 
 interface TextAreaFieldProps {
   id: string;
@@ -29,9 +30,19 @@ export const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = ({
   limit = 5000,
   value,
   errorMessage,
+  label,
+  isRequired,
 }) => {
+  const { name } = registration;
   return (
     <>
+      <div className=''>
+        {!!label && (
+          <Label htmlFor={name} isRequired={isRequired}>
+            {label}
+          </Label>
+        )}
+      </div>
       <textarea
         name={id}
         placeholder={placeholder}

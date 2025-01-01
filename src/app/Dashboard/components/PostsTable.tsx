@@ -11,7 +11,10 @@ interface Props {
 }
 
 const PostsTable = ({ num, posts }: Props) => {
-  const [showDescription, setShowDescription] = useState(false);
+  const [isDescriptionModalOpen, setDescriptionModalOpen] = useState(false);
+
+  const openModal = () => setDescriptionModalOpen(true);
+  const closeModal = () => setDescriptionModalOpen(false);
 
   return (
     <section className='overflow-auto text-tertiary-600'>
@@ -19,7 +22,7 @@ const PostsTable = ({ num, posts }: Props) => {
         <div key={num} className='flex py-2'>
           {posts.map((post, index) => (
             <Fragment key={index}>
-              <div className='flex-shrink-0 grow flex justify-between items-center gap-5 h-[92px] px-4  bg-white rounded-lg'>
+              <div className='flex-shrink-0 grow flex justify-between items-center gap-5 h-[92px] px-4 bg-white rounded-lg'>
                 <div className='flex items-center gap-4'>
                   <img
                     src={post.thumbnail}
@@ -41,7 +44,7 @@ const PostsTable = ({ num, posts }: Props) => {
                   <button
                     type='button'
                     className='font-bold text-xs border border-tertiary-400 rounded-full py-[7px] px-3'
-                    onClick={() => setShowDescription(true)}
+                    onClick={openModal}
                   >
                     View
                   </button>
@@ -62,12 +65,8 @@ const PostsTable = ({ num, posts }: Props) => {
                   </button>
                 </div>
               </div>
-              {showDescription && (
-                <PostDescription
-                  post={post}
-                  isOpen={showDescription}
-                  setIsOpen={setShowDescription}
-                />
+              {isDescriptionModalOpen && (
+                <PostDescription post={post} onClose={closeModal} />
               )}
             </Fragment>
           ))}

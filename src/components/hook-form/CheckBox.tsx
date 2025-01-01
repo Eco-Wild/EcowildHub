@@ -18,7 +18,7 @@ interface Props {
   hasError: Merge<FieldError, FieldErrorsImpl<object>> | undefined;
   errorMessage: string | undefined;
   registration: Partial<UseFormRegisterReturn>;
-  setShowTerms?: React.Dispatch<React.SetStateAction<boolean>>;
+  openTermsModal?: () => void;
 }
 
 const CheckBox: FC<Props> = ({
@@ -30,13 +30,13 @@ const CheckBox: FC<Props> = ({
   hasError,
   errorMessage,
   registration,
-  setShowTerms,
+  openTermsModal,
 }) => {
   const handleCheckBox = (
     e: React.MouseEvent<HTMLLabelElement, MouseEvent>
   ) => {
     e.preventDefault();
-    if (setShowTerms) setShowTerms(true);
+    if (openTermsModal) openTermsModal();
   };
   // const { field, fieldState } = useController({
   //   name,

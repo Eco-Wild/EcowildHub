@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useEffect } from 'react';
 import {
   AnimationControls,
   motion,
@@ -9,6 +9,7 @@ import {
 } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
+
 interface Props {
   children: React.ReactNode;
   animation?: {
@@ -23,6 +24,7 @@ interface Props {
     transition?: Transition;
   };
   className?: string;
+  onClose: () => void; // Function to handle modal close
 }
 
 const defaultVal = {
@@ -41,6 +43,7 @@ const Modal: FC<Props> = ({
   children,
   animation = defaultVal,
   className = 'bg-opacity-65',
+  onClose,
 }) => {
   const overlayVariants = {
     visible: {
@@ -49,7 +52,6 @@ const Modal: FC<Props> = ({
         when: 'beforeChildren',
         duration: 0.3,
         delayChildren: 0.4,
-        // staggerDirection: -1,
       },
     },
     hidden: {
@@ -61,6 +63,21 @@ const Modal: FC<Props> = ({
       },
     },
   };
+
+  useEffect(() => {
+    // Disable background scroll when modal is open
+    document.body.classList.add('no-scroll');
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, []);
+
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose(); // Close modal on backdrop click
+    }
+  };
+
   return (
     <AnimatePresence>
       <motion.div
@@ -68,13 +85,18 @@ const Modal: FC<Props> = ({
         animate='visible'
         exit='hidden'
         variants={overlayVariants}
-        className={clsx('fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full h-screen bg-black md:inset-0', className)}
+        className={clsx(
+          'fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full h-screen bg-black md:inset-0',
+          className
+        )}
+        onClick={handleBackdropClick}
       >
         <motion.div
           initial={animation?.initial}
           animate={animation?.animate}
           exit={animation?.exit}
           transition={animation?.transition}
+          className='relative'
         >
           {children}
         </motion.div>

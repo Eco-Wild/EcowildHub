@@ -41,7 +41,10 @@ const ValidationSchema = yup.object({
 });
 
 const Contact = () => {
-  const [showTerms, setShowTerms] = useState(false);
+  const [isTermsModalOpen, setTermsModalOpen] = useState(false);
+
+  const openModal = () => setTermsModalOpen(true);
+  const closeModal = () => setTermsModalOpen(false);
 
   const {
     control,
@@ -63,7 +66,7 @@ const Contact = () => {
 
   const handleAgreement = () => {
     setValue('acceptTerms', !isAgreed, { shouldValidate: true });
-    setShowTerms(false);
+    closeModal();
   };
 
   const onSubmit: SubmitHandler<ContactValues> = (_data: ContactValues, e) => {
@@ -196,7 +199,7 @@ const Contact = () => {
                   value={acceptTerms}
                   errorMessage={errors.acceptTerms?.message}
                   hasError={errors.acceptTerms}
-                  setShowTerms={setShowTerms}
+                  openTermsModal={openModal}
                 />
                 <Button type='submit' bg='green' disabled={isSubmitting}>
                   {isSubmitting ? (
@@ -216,8 +219,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      {showTerms && (
-        <Terms setShowTerms={setShowTerms} handleAgreement={handleAgreement} />
+      {isTermsModalOpen && (
+        <Terms onClose={closeModal} handleAgreement={handleAgreement} />
       )}
     </section>
   );
