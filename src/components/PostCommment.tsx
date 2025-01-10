@@ -7,6 +7,7 @@ import useFormPersist from 'react-hook-form-persist';
 import Button from './Button';
 import { InputField } from './hook-form/InputField';
 import { TextAreaField } from './hook-form/TextAreaField';
+import { CommentValues } from '../utils/types';
 
 const ValidationSchema = yup.object({
   name: yup
@@ -29,7 +30,7 @@ const ValidationSchema = yup.object({
 });
 
 const PostCommment = () => {
-  const [comments, setComments] = useState(
+  const [comments, setComments] = useState<CommentValues[]>(
     () => JSON.parse(localStorage.getItem('comments') || '[]') ?? []
   );
 
@@ -41,8 +42,8 @@ const PostCommment = () => {
     setValue,
     handleSubmit,
     formState: { errors, isSubmitting, isSubmitted },
-  } = useForm<Comment>({
-    resolver: yupResolver<Comment>(ValidationSchema),
+  } = useForm<CommentValues>({
+    resolver: yupResolver<CommentValues>(ValidationSchema),
     mode: 'onBlur',
   });
 
@@ -54,15 +55,15 @@ const PostCommment = () => {
 
   const commentContent = watch('comment');
 
-  const onSubmit: SubmitHandler<Comment> = (data: Comment, e) => {
-    e.preventDefault();
+  const onSubmit: SubmitHandler<CommentValues> = (data: CommentValues, e) => {
+    e?.preventDefault();
 
     const commentsArr = [...comments, data];
 
     localStorage.setItem('comments', JSON.stringify(commentsArr));
     const getComments = JSON.parse(localStorage.getItem('comments') || '[]');
 
-    return new Promise((resolve) => {
+    return new Promise<void>((resolve) => {
       setTimeout(() => {
         if (isSubmitted) {
           setComments(() => getComments);
@@ -133,7 +134,7 @@ const PostCommment = () => {
           id='comment'
           placeholder='Type your comment'
           registration={{ ...register('comment') }}
-          errorMessage={errors.comment?.comment}
+          errorMessage={errors.comment?.message}
           hasError={errors.comment}
           value={commentContent}
           isRequired

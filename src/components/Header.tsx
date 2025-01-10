@@ -115,9 +115,9 @@ export const Header = () => {
                   )}
                   {item.dropdown && item.id === activeDropdown && (
                     <Dropdown
-                      item={item}
-                      isActive={isActive}
+                      items={item.dropdown}
                       className='top-14'
+                      onClose={() => setActiveDropdown('')}
                     />
                   )}
                 </li>
@@ -169,9 +169,9 @@ export const Header = () => {
 
                   {item.dropdown && item.id === activeDropdown && (
                     <Dropdown
-                      item={item}
-                      isActive={isActive}
+                      items={item.dropdown}
                       className='top-6 shadow-md'
+                      onClose={() => setActiveDropdown('')}
                     />
                   )}
                 </li>

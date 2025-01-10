@@ -5,12 +5,13 @@ interface Props {
   tabs: string[];
   activeTab: string;
   setActiveTab: React.Dispatch<SetStateAction<string>>;
+  className?: string;
 }
 
-const TabsHeader = ({ tabs, activeTab, setActiveTab }: Props) => {
+const TabsHeader = ({ tabs, activeTab, setActiveTab, className }: Props) => {
   return (
     <section className='h-[93px] bg-white'>
-      <ul className='flex items-center gap-20 h-full p-6'>
+      <ul className={clsx('flex items-center gap-20 h-full', className)}>
         {tabs.map((tab, index) => (
           <li
             key={index}
