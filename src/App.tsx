@@ -27,6 +27,7 @@ import CheckEmail from './app/Dashboard/pages/auth/CheckEmail';
 import ResetPassword from './app/Dashboard/pages/auth/ResetPassword';
 import ResetSuccess from './app/Dashboard/pages/auth/ResetSuccess';
 import Publish from './app/Dashboard/pages/Publish';
+import Media from './app/Dashboard/pages/Media';
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
         <Route element={<DashboardLayout />}>
           <Route path='/dashboard/overview' element={<Overview />} />
           <Route path='/dashboard/publish' element={<Publish />} />
+          <Route path='/dashboard/media' element={<Media />} />
         </Route>
 
         {/* Routes without any layout */}

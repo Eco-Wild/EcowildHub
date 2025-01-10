@@ -17,10 +17,23 @@ interface Props {
 const PaginatedPostsTable = ({ activeTab, tabs, setActiveTab }: Props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isFormModalOpen, setFormModalOpen] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState<string>('all');
+  const [searchValue, setSearchValue] = useState('');
 
   const itemsPerPage = 5;
   const start = currentPage * itemsPerPage;
-  const currentItems = posts.slice(start, start + itemsPerPage);
+  const filteredPosts = posts.filter((post) => {
+    const matchesSearchValue =
+      post.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+      post.author.toLowerCase().includes(searchValue.toLowerCase());
+    const matchesDropdownFilter =
+      selectedFilter.toLowerCase() === 'all' ||
+      post.date === selectedFilter.toLowerCase() ||
+      post.author === selectedFilter.toLowerCase();
+
+    return matchesSearchValue && matchesDropdownFilter;
+  });
+  const currentItems = filteredPosts.slice(start, start + itemsPerPage);
 
   const openModal = () => setFormModalOpen(true);
   const closeModal = () => setFormModalOpen(false);
@@ -37,11 +50,17 @@ const PaginatedPostsTable = ({ activeTab, tabs, setActiveTab }: Props) => {
         tabs={tabs}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        className='p-6'
       />
       <div className='p-6'>
         {' '}
         <section className='flex flex-wrap sm:flex-row flex-col sm:items-center justify-between gap-x-36 gap-y-6'>
-          <SearchFilter className='grow' />
+          <SearchFilter
+            className='grow'
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            setSelectedFilter={setSelectedFilter}
+          />
           <div className='grow flex items-center gap-6'>
             <ReactPaginate
               pageCount={Math.ceil(posts.length / itemsPerPage)}
