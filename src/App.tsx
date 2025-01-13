@@ -67,11 +67,20 @@ function App() {
         </Route>
 
         {/* Routes without any layout */}
-        <Route path='/dashboard/signin' element={<Signin />} />
-        <Route path='/dashboard/forgot-password' element={<ForgotPassword />} />
-        <Route path='/dashboard/check-email' element={<CheckEmail />} />
-        <Route path='/dashboard/reset-password' element={<ResetPassword />} />
-        <Route path='/dashboard/reset-success' element={<ResetSuccess />} />
+        <Route path='/dashboard/auth/signin' element={<Signin />} />
+        <Route
+          path='/dashboard/auth/forgot-password'
+          element={<ForgotPassword />}
+        />
+        <Route path='/dashboard/auth/check-email' element={<CheckEmail />} />
+        <Route
+          path='/dashboard/auth/reset-password'
+          element={<ResetPassword />}
+        />
+        <Route
+          path='/dashboard/auth/reset-success'
+          element={<ResetSuccess />}
+        />
       </Routes>
     </Router>
   );

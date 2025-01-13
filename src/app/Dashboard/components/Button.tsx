@@ -8,7 +8,7 @@ interface Props {
   onClick?: () => void;
 }
 
-const Button = ({
+export const Button = ({
   children,
   type,
   bg = 'green',

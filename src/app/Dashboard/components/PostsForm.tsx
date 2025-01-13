@@ -103,7 +103,7 @@ const PostsForm = ({ title, onClose }: Props) => {
 
   return (
     <Modal onClose={onClose}>
-      <section className='px-[52px] py-6 w-[600px] max-h-[800px] overflow-x-scroll bg-white rounded-xl text-tertiary-600'>
+      <section className='px-[52px] py-6 w-[600px] max-h-[800px] font-Montserrat overflow-x-scroll bg-white rounded-xl text-tertiary-600'>
         <div className='flex justify-end my-3' onClick={onClose}>
           {' '}
           <button className='flex justify-center items-center w-9 h-9 border border-tertiary-600 rounded-lg'>

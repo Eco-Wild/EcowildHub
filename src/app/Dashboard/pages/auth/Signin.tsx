@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { InputField } from '../../../../components/hook-form/InputField';
 import { useState } from 'react';
 import { SigninValues } from '../../../../utils/types';
-import Button from '../../../../components/Button';
+import Button from '../../components/Button';
 import BackgroundLayout from '../../components/BackgroundLayout';
 import { Link } from 'react-router-dom';
 
@@ -50,7 +50,7 @@ const Signin = () => {
     <BackgroundLayout>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='xs:px-10 px-5 py-12 bg-white w-full  max-w-[499px] rounded-lg'
+        className='xs:px-10 px-5 py-12 font-Lato bg-white w-full  max-w-[499px] rounded-lg'
       >
         <h1 className='mb-5 font-bold text-[32px] text-center'>Sign In</h1>
         <InputField
@@ -89,7 +89,7 @@ const Signin = () => {
           {isSubmitting ? 'Signing In...' : 'Sign In'}
         </Button>
         <Link
-          to='/dashboard/forgot-password'
+          to='/dashboard/auth/forgot-password'
           className='block text-right font-sm'
         >
           Forgot Password?

@@ -4,14 +4,14 @@ const data = [
     heading: 'Protecting Wildlife for a Sustainable Future',
     text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     date: '2 weeks ago',
-    id: crypto.randomUUID(),
+    id: '1',
   },
   {
     image: '/man-and-woman2.jpg',
     heading: 'Protecting Wildlife for a Sustainable Future',
     text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     date: '2 weeks ago',
-    id: crypto.randomUUID(),
+    id: '2',
   },
 ];
 

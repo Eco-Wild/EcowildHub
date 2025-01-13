@@ -6,10 +6,10 @@ import { Icon } from '@iconify/react/dist/iconify.js';
 import Dropdown from './Dropdown';
 
 const navItems = [
-  { name: 'Home', href: '/', id: crypto.randomUUID() },
-  { name: 'About', href: '/about-us', id: crypto.randomUUID() },
-  { name: 'Destinations', href: '/destinations', id: crypto.randomUUID() },
-  { name: 'Events', href: '/events', id: crypto.randomUUID() },
+  { name: 'Home', href: '/', id: "1" },
+  { name: 'About', href: '/about-us', id: "2" },
+  { name: 'Destinations', href: '/destinations', id: "3" },
+  { name: 'Events', href: '/events', id: "4" },
   {
     name: 'Media',
     href: '',
@@ -17,7 +17,7 @@ const navItems = [
       { name: 'Image Gallery', href: '/media/image-gallery' },
       { name: 'Video Gallery', href: '/media/video-gallery' },
     ],
-    id: crypto.randomUUID(),
+    id: "5",
   },
 
   {
@@ -27,7 +27,7 @@ const navItems = [
       { name: 'News', href: '/publish/news' },
       { name: 'Blogs', href: '/publish/blogs' },
     ],
-    id: crypto.randomUUID(),
+    id: "6",
   },
 ];
 
