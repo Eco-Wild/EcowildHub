@@ -38,10 +38,11 @@ const ResetPassword = () => {
     e
   ) => {
     e?.preventDefault();
+    console.log(data);
   };
   return (
     <BackgroundLayout>
-      <section className='xs:px-10 px-5 py-10 mb-4 bg-white w-full  max-w-[499px] rounded-lg'>
+      <section className='xs:px-10 px-5 py-10 mb-4 font-Lato bg-white w-full  max-w-[499px] rounded-lg'>
         <h2 className='font-bold text-[32px]  text-center'>
           Forgot your password?
         </h2>
@@ -76,7 +77,7 @@ const ResetPassword = () => {
           />
           <Button type='submit'>Next</Button>
           <Button type='button' bg='white'>
-            <Link to='/dashboard/signin'> Back to Login</Link>
+            <Link to='/dashboard/auth/signin'> Back to Login</Link>
           </Button>
         </form>
       </section>

@@ -27,7 +27,10 @@ const Reachout = ({ bgColor, buttonBorder }: Props) => {
             <Button
               type='button'
               bg='green'
-              className={clsx('', buttonBorder ? 'border border-white' : '')}
+              className={clsx(
+                'h-[54px]',
+                buttonBorder ? 'border border-white' : ''
+              )}
               onClick={() => navigate('./contact-us')}
             >
               Contact Us

@@ -54,16 +54,16 @@ const HeroCarousel = () => {
                   <Button
                     type='button'
                     bg='green'
-                    className='mb-3 xs:mb-0 block'
+                    className='mb-3 xs:mb-0 block h-[54px]'
                   >
                     <Link to='/destinations'>Explore More</Link>
                   </Button>
                   <Button
                     type='button'
                     bg='white'
-                    className='border-none block'
+                    className='border-none block h-[54px]'
                   >
-                    <Link to='/donate' className='text-black '>
+                    <Link to='/donate' className='text-black'>
                       Donate Now!
                     </Link>
                   </Button>
