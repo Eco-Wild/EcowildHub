@@ -3,6 +3,7 @@ import {
   Route,
   Routes,
   Outlet,
+  Navigate,
 } from 'react-router-dom';
 import Home from './app/pages/Home';
 import About from './app/pages/About';
@@ -61,6 +62,10 @@ function App() {
 
         {/* Dashboard Routes */}
         <Route element={<DashboardLayout />}>
+          <Route
+            path='/dashboard'
+            element={<Navigate to='/dashboard/overview' replace />}
+          />
           <Route path='/dashboard/overview' element={<Overview />} />
           <Route path='/dashboard/publish' element={<Publish />} />
           <Route path='/dashboard/media' element={<Media />} />
