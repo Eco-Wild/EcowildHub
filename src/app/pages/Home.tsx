@@ -197,7 +197,13 @@ const Home = () => {
             can create lasting change and join the fight for nature.
           </p>
           <Button type='button' bg='green'>
-            <Link to='./donations'>Donate Here!</Link>
+            <Link
+              to='https://www.paypal.com/donate/?hosted_button_id=HAV6D95M84BG2'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Donate Here!
+            </Link>
           </Button>
         </section>
         <section className='py-14 relative z-10 bg-white'>

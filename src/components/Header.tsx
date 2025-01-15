@@ -6,10 +6,10 @@ import { Icon } from '@iconify/react/dist/iconify.js';
 import Dropdown from './Dropdown';
 
 const navItems = [
-  { name: 'Home', href: '/', id: "1" },
-  { name: 'About', href: '/about-us', id: "2" },
-  { name: 'Destinations', href: '/destinations', id: "3" },
-  { name: 'Events', href: '/events', id: "4" },
+  { name: 'Home', href: '/', id: '1' },
+  { name: 'About', href: '/about-us', id: '2' },
+  { name: 'Destinations', href: '/destinations', id: '3' },
+  { name: 'Events', href: '/events', id: '4' },
   {
     name: 'Media',
     href: '',
@@ -17,7 +17,7 @@ const navItems = [
       { name: 'Image Gallery', href: '/media/image-gallery' },
       { name: 'Video Gallery', href: '/media/video-gallery' },
     ],
-    id: "5",
+    id: '5',
   },
 
   {
@@ -27,7 +27,7 @@ const navItems = [
       { name: 'News', href: '/publish/news' },
       { name: 'Blogs', href: '/publish/blogs' },
     ],
-    id: "6",
+    id: '6',
   },
 ];
 
@@ -46,14 +46,14 @@ export const Header = () => {
     <header className='container mx-auto max-w-[1728px]'>
       <nav>
         <div className='flex h-24 bg-white items-center justify-between space-x-3 py-3'>
-          <a href='/'>
+          <Link to='/' className='flex-shrink-0'>
             <img
               loading='lazy'
               src='/logo.svg'
               className='h-[64px] w-20 -ml-3'
               alt='ecowildhub logo'
             />
-          </a>
+          </Link>
 
           <button
             className='group flex h-12 w-12 flex-col items-center justify-center lg:hidden'
@@ -80,7 +80,7 @@ export const Header = () => {
             />
           </button>
 
-          <ul className='hidden items-center space-x-12 lg:flex'>
+          <ul className='hidden items-center space-x-10 lg:flex'>
             {navItems.map((item) => {
               const isActive = item.href === location.pathname;
               return (
@@ -130,7 +130,13 @@ export const Header = () => {
               <Link to='/contact'>Contact Us</Link>
             </Button>
             <Button type='button' bg='green' onClick={() => setIsOpen(false)}>
-              <Link to='/donate'>Donate</Link>
+              <Link
+                to='https://www.paypal.com/donate/?hosted_button_id=HAV6D95M84BG2'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                Donate
+              </Link>
             </Button>
           </div>
         </div>
@@ -192,7 +198,13 @@ export const Header = () => {
             className='block my-5'
             onClick={() => setIsOpen(false)}
           >
-            <Link to='/donate'>Donate</Link>
+            <Link
+              to='https://www.paypal.com/donate/?hosted_button_id=HAV6D95M84BG2'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Donate
+            </Link>
           </Button>
         </div>
       </nav>

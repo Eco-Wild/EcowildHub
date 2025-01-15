@@ -7,7 +7,7 @@ const team = [
   {
     name: 'Nkechi Udenkwor',
     image: '/Nkechi.jpg',
-    role: 'Front-end Developer',
+    role: 'Front-end Lead',
   },
   {
     name: 'Anna Matsane',
