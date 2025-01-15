@@ -63,7 +63,12 @@ const HeroCarousel = () => {
                     bg='white'
                     className='border-none block h-[54px]'
                   >
-                    <Link to='/donate' className='text-black'>
+                    <Link
+                      to='https://www.paypal.com/donate/?hosted_button_id=HAV6D95M84BG2'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='text-black'
+                    >
                       Donate Now!
                     </Link>
                   </Button>

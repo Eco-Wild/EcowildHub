@@ -1,4 +1,3 @@
-import React from 'react';
 import HeroSectionHalf from '../../components/HeroSectionHalf';
 
 const VideoGallery = () => {

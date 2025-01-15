@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 interface DropdownItem {
   name: string;
@@ -18,22 +18,19 @@ const Dropdown = ({ items, className, onSelect, onClose }: Props) => {
   const dropdownRef = useRef<HTMLUListElement>(null);
 
   // Handle outside click
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        onClose(); // Close dropdown
-      }
-    };
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (
+  //       dropdownRef.current &&
+  //       !dropdownRef.current.contains(event.target as Node)
+  //     ) {
+  //       onClose();
+  //     }
+  //   };
 
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [onClose]);
+  //   document.addEventListener('mousedown', handleClickOutside);
+  //   return () => document.removeEventListener('mousedown', handleClickOutside);
+  // }, [onClose]);
 
   const handleItemClick = (itemName: string) => {
     onSelect?.(itemName);
@@ -56,15 +53,13 @@ const Dropdown = ({ items, className, onSelect, onClose }: Props) => {
         {items.map((item) => (
           <li
             key={item.name}
-            className='px-2 py-1 my-1 w-10/12 opacity-70 hover:bg-cream-100 rounded-md'
+            className='w-10/12 px-2 py-1 my-1 opacity-70 hover:bg-cream-100 rounded-md cursor-pointer'
             onClick={() => handleItemClick(item.name)}
           >
             {item.href ? (
               <Link to={item.href}>{item.name}</Link>
             ) : (
-              <span className='block py-1 opacity-70 hover:bg-cream-100 rounded-md cursor-pointer'>
-                {item.name}
-              </span> // Non-link display
+              <span>{item.name}</span>
             )}
           </li>
         ))}
