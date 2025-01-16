@@ -30,7 +30,7 @@ export const blogs = [
     id: '5',
   },
   {
-    image: '/public/lady-arms-open-on-canopy-walk.jpg',
+    image: '/lady-arms-open-on-canopy-walk.jpg',
     title: 'Protecting Wildlife for a Sustainable Future',
     date: '2 weeks ago',
     id: '6',
